@@ -1,11 +1,16 @@
 import './Footer.css';
+import InstagramIcon from '../assets/instagram.png';
+import LinkedInIcon from '../assets/linkedin.png';
+import YouTubeIcon from '../assets/youtube.png';
+import AppleMusicIcon from '../assets/apple_music.png';
+import IMDbIcon from '../assets/IMDb_Icon.png';
 
 export default function Footer() {
     return (
         <footer id="contact" className="site-footer">
             <div className="footer-content">
                 <h2 className="footer-title">LOGYN OKUDA</h2>
-                <div className="footer-divider"><img src="http://localhost:3845/assets/6ef246d4e82492e6d05a9b6ce49cae35b5753d11.svg" alt="line" /></div>
+                <div className="footer-divider"></div>
                 <div className="footer-grid">
                     <div className="footer-column quick-links">
                         <h3>Quick Links</h3>
@@ -21,19 +26,19 @@ export default function Footer() {
                         <h3>Follow my work on social media</h3>
                         <div className="social-icons">
                             <a href="#" className="social-icon" aria-label="Instagram">
-                                <img src="http://localhost:3845/assets/a63366bc72b796130b71ef566609dacd8f616462.svg" alt="Instagram" />
+                                <img src={InstagramIcon} alt="Instagram" />
                             </a>
                             <a href="#" className="social-icon" aria-label="LinkedIn">
-                                <img src="http://localhost:3845/assets/8dfe80538f5f00ef58a64ad28b386d80491b6d2d.svg" alt="LinkedIn" />
+                                <img src={LinkedInIcon} alt="LinkedIn" />
                             </a>
                             <a href="#" className="social-icon" aria-label="YouTube">
-                                <img src="http://localhost:3845/assets/2b2a8c2a58f2161b7605d22a262605aea51e401d.svg" alt="YouTube" />
+                                <img src={YouTubeIcon} alt="YouTube" />
                             </a>
                             <a href="#" className="social-icon apple-music" aria-label="Apple Music">
-                                <img src="http://localhost:3845/assets/f056c22d17f316354bd84692f6b6cad9b311eea2.svg" alt="Apple Music" />
+                                <img src={AppleMusicIcon} alt="Apple Music" />
                             </a>
-                            <a href="#" className="social-icon" aria-label="Spotify">
-                                <img src="http://localhost:3845/assets/c16cb90880c8c44288928bb770084e9960050b71.png" alt="Spotify" />
+                            <a href="#" className="social-icon" aria-label="IMDb">
+                                <img src={IMDbIcon} alt="IMDb" />
                             </a>
                         </div>
                         <div className="contact-info">
@@ -42,7 +47,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="footer-bottom-line"><img src="http://localhost:3845/assets/188f5b5f0e88a2fca4e1a4def576537ff8881da3.svg" alt="line" /></div>
+                <div className="footer-bottom-line"></div>
                 <div className="footer-copyright">
                     <p>Copyright &copy; 2026. All rights Reserved.</p>
                     <p>Powered By Zumify</p>

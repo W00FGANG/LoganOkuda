@@ -54,12 +54,9 @@
 
 .nav-underline {
     max-width: 1280px;
-    margin: 10px auto 0;
-    padding: 0 2rem;
-}
-
-.nav-underline img {
-    width: 100%;
+    margin: 20px auto 0;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .mobile-menu-toggle {

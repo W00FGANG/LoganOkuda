@@ -1,10 +1,11 @@
 .hero-section {
     position: relative;
-    height: 972px;
-    max-width: 1280px;
-    margin: 0 auto;
+    height: 100vh;
+    min-height: 900px;
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
@@ -25,11 +26,12 @@
 }
 
 .hero-content {
-    margin-left: 71px;
     position: relative;
     z-index: 1;
-    width: 730px;
-    max-width: 90%;
+    width: 100%;
+    max-width: 1280px;
+    padding-left: 71px;
+    margin: 0 auto;
 }
 
 .hero-title {
@@ -56,6 +58,15 @@
     border: 5px solid var(--color-slate-900);
     border-radius: 45px;
     width: 100%;
+    max-width: 730px;
+    overflow: hidden;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 @media (max-width: 1024px) {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Header.css';
+import Ellipse1 from '../assets/Ellipse 1.png';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -24,19 +25,17 @@ export default function Header() {
                 </button>
                 <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
                     <li><a href="#home" onClick={closeMenu}>HOME</a></li>
-                    <li className="separator"><img src="http://localhost:3845/assets/0decfb9d05744d1fd60f2f66186d4f4d182dd73d.svg" alt="separator" /></li>
+                    <li className="separator"><img src={Ellipse1} alt="separator" /></li>
                     <li><a href="#biography" onClick={closeMenu}>BIOGRAPHY</a></li>
-                    <li className="separator"><img src="http://localhost:3845/assets/0decfb9d05744d1fd60f2f66186d4f4d182dd73d.svg" alt="separator" /></li>
+                    <li className="separator"><img src={Ellipse1} alt="separator" /></li>
                     <li><a href="#credits" onClick={closeMenu}>CREDITS</a></li>
-                    <li className="separator"><img src="http://localhost:3845/assets/0decfb9d05744d1fd60f2f66186d4f4d182dd73d.svg" alt="separator" /></li>
+                    <li className="separator"><img src={Ellipse1} alt="separator" /></li>
                     <li><a href="#listen" onClick={closeMenu}>LISTEN</a></li>
-                    <li className="separator"><img src="http://localhost:3845/assets/0decfb9d05744d1fd60f2f66186d4f4d182dd73d.svg" alt="separator" /></li>
+                    <li className="separator"><img src={Ellipse1} alt="separator" /></li>
                     <li><a href="#contact" onClick={closeMenu}>CONTACT</a></li>
                 </ul>
             </nav>
-            <div className="nav-underline">
-                <img src="http://localhost:3845/assets/7caa23bda0fb1e90626944b7eee0cb94b7ad25d6.svg" alt="line" />
-            </div>
+            <div className="nav-underline"></div>
         </header>
     );
 }
