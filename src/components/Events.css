@@ -1,0 +1,119 @@
+.events-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding: 0 58px;
+}
+
+.event-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-image-wrapper {
+    width: 100%;
+    height: 368px;
+    border: 1px solid var(--color-black);
+    border-radius: 40px 40px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-img {
+    transform: scale(1.05);
+}
+
+.event-content {
+    background: var(--event-card-gradient);
+    border: 3px solid var(--color-black);
+    border-top: none;
+    border-radius: 0 0 40px 40px;
+    width: 100%;
+    padding: 28px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+}
+
+.event-title {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    min-height: 103px;
+}
+
+.event-divider {
+    margin-bottom: 20px;
+}
+
+.event-divider img {
+    width: 100%;
+}
+
+.event-desc {
+    font-family: var(--font-quinary);
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1.4;
+    flex-grow: 1;
+    margin-bottom: 30px;
+}
+
+.event-cta {
+    background: var(--cta-gradient);
+    border-radius: 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35px 0 40px;
+    width: 90%;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.event-cta:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.cta-text {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 35px;
+    letter-spacing: -0.175px;
+}
+
+.cta-icon {
+    width: 32px;
+    height: 31px;
+}
+
+@media (max-width: 1024px) {
+    .events-grid {
+        gap: 20px;
+        padding: 0 20px;
+    }
+    .event-title { font-size: 35px; }
+    .event-desc { font-size: 20px; }
+}
+
+@media (max-width: 768px) {
+    .events-grid { grid-template-columns: 1fr; }
+    .event-content { height: auto; }
+}

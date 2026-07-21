@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Kanit:wght@400;500&family=Open+Sans:wght@400;600;700&family=Poller+One&family=Raleway:wght@500&display=swap');
+
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-slate-900: #0F172A;
+    --color-slate-500: #64748B;
+    --color-slate-400: #94A3B8;
+    --color-slate-300: #CBD5E1;
+    --color-gold: #9c925c;
+    
+    --bg-gradient: linear-gradient(to top, #043661 0%, #123b5f 48.08%, #242424 100%);
+    --footer-gradient: linear-gradient(to bottom, #252c35 0%, #0f1015 100%);
+    --event-card-gradient: linear-gradient(to bottom, #252c35 0%, #0f1015 100%);
+    --cta-gradient: linear-gradient(to top, #00529a 0%, #123b5f 48.08%, #242424 100%);
+
+    --font-primary: 'Open Sans', sans-serif;
+    --font-secondary: 'Kanit', sans-serif;
+    --font-tertiary: 'Inter', sans-serif;
+    --font-quaternary: 'Poller One', cursive;
+    --font-quinary: 'Raleway', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: var(--bg-gradient);
+    color: var(--color-white);
+    font-family: var(--font-tertiary);
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-on-scroll.is-visible {
+    animation: fadeIn 0.8s ease forwards;
+}

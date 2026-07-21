@@ -1,0 +1,129 @@
+.site-footer {
+    background: var(--footer-gradient);
+    padding: 90px 4.44% 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content {
+    max-width: 1155px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 42px;
+}
+
+.footer-title {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 50px;
+    letter-spacing: -0.6px;
+    text-align: center;
+}
+
+.footer-divider {
+    width: 100%;
+    max-width: 718px;
+}
+
+.footer-divider img {
+    width: 100%;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: flex-start;
+    gap: 95px;
+    width: 100%;
+}
+
+.footer-column h3 {
+    font-family: var(--font-tertiary);
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--color-slate-400);
+    margin-bottom: 15px;
+}
+
+.quick-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quick-links a {
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.quick-links a:hover {
+    color: var(--color-gold);
+}
+
+.social-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 19px;
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    width: 51px;
+    height: 51px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    overflow: hidden;
+}
+
+.social-icon.apple-music {
+    background: url('http://localhost:3845/assets/58cb6053c8efef081ce6e35d20a096118246b8d5.svg') center/cover;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.footer-bottom-line {
+    width: 100%;
+}
+
+.footer-bottom-line img {
+    width: 100%;
+}
+
+.footer-copyright {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 16px;
+    color: var(--color-slate-300);
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-copyright {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
