@@ -12,7 +12,12 @@ export default function Projects() {
             </div>
             <div className="projects-grid">
                 <div className="project-card animate-on-scroll">
-                    <video src={ComposerReel} className="project-poster project-poster-1" autoPlay loop muted playsInline />
+                    <video 
+                        src={ComposerReel} 
+                        className="project-poster project-poster-1" 
+                        autoPlay loop muted playsInline 
+                        ref={(el) => { if (el) el.playbackRate = 0.6; }}
+                    />
                     <div className="project-text-overlay">
                         <h3>Composition<br />Credits</h3>
                     </div>
