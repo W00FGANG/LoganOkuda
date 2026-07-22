@@ -4,8 +4,7 @@ import BWLogynBio from '../assets/BWLogynBio.png';
 import BannerImage from '../assets/Banner Image.png';
 import BillyV from '../assets/BillyV.png';
 import ClassicalPacific from '../assets/ClassicalPacific.png';
-import Skyfall from '../assets/Skyfall.png';
-import Elegy from '../assets/Elegy.png';
+import SkyfallVideo from '../assets/SkyFall.mp4';
 
 export default function Biography() {
     useEffect(() => {
@@ -50,20 +49,34 @@ export default function Biography() {
                 <div className="press-grid">
                     <div className="press-card">
                         <div className="press-image-container">
-                            <img src={BillyV} alt="Billy V Live" className="press-image" />
+                            <iframe 
+                                className="press-image" 
+                                src="https://www.youtube.com/embed/nNirjrRv8mU?si=uRTjbC5f5BG412Rr" 
+                                title="YouTube video player" 
+                                frameBorder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerPolicy="strict-origin-when-cross-origin" 
+                                allowFullScreen
+                            ></iframe>
                         </div>
                         <div className="press-text">
                             <p>This week on Billy V Live, Billy sits down with composer Logyn Okuda, an Iolani graduate who writes scores for some the world’s biggest box office hits.</p>
                         </div>
                     </div>
-                    <div className="press-card">
+                    <a 
+                        href="https://www.hawaiipublicradio.org/classical-music-conversations/2025-10-23/composer-logyn-okuda" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="press-card"
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
                         <div className="press-image-container">
                             <img src={ClassicalPacific} alt="Classical Pacific" className="press-image" />
                         </div>
                         <div className="press-text">
                             <p>Composer Logyn Okuda returns to Classical Pacific with updates on his career, orchestrating for composer Michael Giacchino on Butterfly, The Fantastic Four, and most recently, the upcoming Zootopia 2. Okuda will back home in the islands this week as one of 5 Hawai`i composers featured in the Hawai`i Symphony Orchestraʻs Symphony of the Hawai`i Seas.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div className="section-banner" style={{ marginTop: '80px', marginBottom: '40px' }}>
                     <div className="banner-line left-line"></div>
@@ -73,7 +86,7 @@ export default function Biography() {
                 <div className="other-work-list">
                     <div className="other-work-item">
                         <div className="other-work-image-container">
-                            <img src={Skyfall} alt="Skyfall Rescore" className="other-work-image" />
+                            <video src={SkyfallVideo} className="other-work-image" controls />
                         </div>
                         <p className="other-work-text">Rescore of ‘Skyfall’ (2012) motorcycle chase sequence.</p>
                     </div>

@@ -42,7 +42,7 @@
 }
 
 .biography-banner-btn {
-    background-color: #113460;
+    background: var(--cta-gradient);
     color: #ffffff;
     border: none;
     padding: 15px 40px;
