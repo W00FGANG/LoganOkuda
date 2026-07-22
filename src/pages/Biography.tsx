@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import './Biography.css';
 import BWLogynBio from '../assets/BWLogynBio.png';
 import BannerImage from '../assets/Banner Image.png';
-import BillyV from '../assets/BillyV.png';
 import ClassicalPacific from '../assets/ClassicalPacific.png';
 import SkyfallVideo from '../assets/SkyFall.mp4';
 
@@ -19,7 +18,10 @@ export default function Biography() {
                     <p className="biography-banner-subtitle">
                         a fast-rising film and television music composer and orchestrator. Originally from Hawaii, he has quickly made a name for himself in Hollywood through his collaborative work under Oscar-winning composer Michael Giacchino.
                     </p>
-                    <button className="biography-banner-btn">LEARN MORE</button>
+                    <button 
+                        className="biography-banner-btn"
+                        onClick={() => document.querySelector('.biography-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    >LEARN MORE</button>
                 </div>
             </section>
 
