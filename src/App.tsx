@@ -1,13 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Events from './components/Events';
 import Footer from './components/Footer';
+import Biography from './pages/Biography';
 import './index.css';
 
 function App() {
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
   useEffect(() => {
+    const handleHashChange = () => setCurrentHash(window.location.hash);
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  useEffect(() => {
+    if (currentHash === '#biography') return;
+
     const observerOptions = {
       root: null,
       rootMargin: '0px',
@@ -23,20 +34,27 @@ function App() {
       });
     }, observerOptions);
 
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    animateElements.forEach(el => observer.observe(el));
+    // Small timeout to ensure DOM elements are rendered
+    setTimeout(() => {
+      const animateElements = document.querySelectorAll('.animate-on-scroll');
+      animateElements.forEach(el => observer.observe(el));
+    }, 100);
 
     return () => observer.disconnect();
-  }, []);
+  }, [currentHash]);
 
   return (
     <>
       <Header />
-      <main>
-        <Hero />
-        <Projects />
-        <Events />
-      </main>
+      {currentHash === '#biography' ? (
+        <Biography />
+      ) : (
+        <main>
+          <Hero />
+          <Projects />
+          <Events />
+        </main>
+      )}
       <Footer />
     </>
   );

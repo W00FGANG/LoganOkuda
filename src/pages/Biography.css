@@ -1,0 +1,160 @@
+.biography-divider-banner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 50px auto 0;
+}
+.biography-divider-title {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 45px;
+    text-align: center;
+    width: 544px;
+    flex-shrink: 0;
+}
+.biography-divider-line {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.biography-divider-line.left-line {
+    width: 368px;
+    flex-shrink: 0;
+}
+.biography-divider-line.right-line {
+    flex: 1;
+}
+
+.biography-page {
+    background-color: #0f1115; /* Match theme */
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Banner Section */
+.biography-banner {
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 60px; /* Top padding to clear fixed header */
+    text-align: center;
+}
+
+.biography-banner-content {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.biography-banner-title {
+    font-family: var(--font-primary);
+    font-size: 4rem;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.biography-banner-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-weight: 300;
+    color: #e2e8f0;
+}
+
+.biography-banner-btn {
+    background-color: #113460;
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.biography-banner-btn:hover {
+    background-color: #0d2646;
+    transform: translateY(-2px);
+}
+
+/* Original Content Section */
+.biography-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.biography-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.biography-image-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.biography-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.biography-image:hover {
+    transform: scale(1.02);
+}
+
+.biography-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.biography-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #c9d1d9;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .biography-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .banner-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .biography-section {
+        padding: 40px 20px;
+    }
+    
+    .biography-text {
+        font-size: 1rem;
+    }
+
+    .banner-title {
+        font-size: 2.5rem;
+    }
+
+    .banner-subtitle {
+        font-size: 1rem;
+    }
+}
