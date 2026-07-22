@@ -27,8 +27,7 @@
 }
 
 .banner-line.left-line {
-    width: 368px;
-    flex-shrink: 0;
+    flex: 1;
 }
 
 .banner-line.right-line {

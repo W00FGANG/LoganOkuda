@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import './Biography.css';
-import CollageLogan from '../assets/Collage Logan 1 1.png';
-import LoganComposer from '../assets/Logan Composer.jpg';
+import BWLogynBio from '../assets/BWLogynBio.png';
 import BannerImage from '../assets/Banner Image.png';
+import BillyV from '../assets/BillyV.png';
+import ClassicalPacific from '../assets/ClassicalPacific.png';
+import Skyfall from '../assets/Skyfall.png';
+import Elegy from '../assets/Elegy.png';
 
 export default function Biography() {
     useEffect(() => {
@@ -26,12 +29,11 @@ export default function Biography() {
                     <div className="biography-grid">
                         <div className="biography-text-container">
                             <p className="biography-text">
-                                He recently scored Emmy-nominated Henry Ian Cusick’s (LOST) new short, Salvador, political spy-thriller Granadilla, starring Faran Tahir (Iron Man, Star Trek), indie video game Agebringer by Space Base Games (2026), and Nightbound: Paralysis by FlickerLight Games (2027). In addition, Okuda collaborates and works for composer Michael Giacchino, orchestrating and assisting on projects such as Marvel’s The Fantastic Four: First Steps, Disney’s Zootopia 2, and Warner Bros.’ The End of Oak Street. Additional music credits include Skydance Animation’s Ray Gunn (dir. by Brad Bird), Amazon Prime’s Butterfly, Marvel Television’s VisionQuest. Okuda worked with Michael’s son, Mick Giacchino, on an arrangement of a new Muppets song for The Game Awards in December of 2025.
+                                He recently scored Emmy-nominated Henry Ian Cusick’s (LOST) new short, Salvador, political spy-thriller Granadilla, starring Faran Tahir (Iron Man, Star Trek), indie video game Agebringer by Space Base Games (2026), and Nightbound: Paralysis by FlickerLight Games (2027). <br /> <br /> In addition, Okuda collaborates and works for composer Michael Giacchino, orchestrating and assisting on projects such as Marvel’s The Fantastic Four: First Steps, Disney’s Zootopia 2, and Warner Bros.’ The End of Oak Street. Additional music credits include Skydance Animation’s Ray Gunn (dir. by Brad Bird), Amazon Prime’s Butterfly, Marvel Television’s VisionQuest. Okuda worked with Michael’s son, Mick Giacchino, on an arrangement of a new Muppets song for The Game Awards in December of 2025.
                             </p>
                         </div>
-                        <div className="biography-images-wrapper">
-                            <img src={CollageLogan} alt="Logan Studio" className="biography-image-top" />
-                            <img src={LoganComposer} alt="Logan Conducting" className="biography-image-bottom" />
+                        <div className="biography-image-container">
+                            <img src={BWLogynBio} alt="Logan Biography" className="biography-image" />
                         </div>
                     </div>
                     <div className="biography-full-text">
@@ -40,10 +42,55 @@ export default function Biography() {
                         </p>
                     </div>
                 </div>
-               <div className="biography-divider-banner">
-                    <div className="biography-divider-line left-line"></div>
-                    <h2 className="biography-divider-title">RECENT PROJECTS</h2>
-                    <div className="biography-divider-line right-line"></div>
+               <div className="section-banner" style={{ marginTop: '80px', marginBottom: '40px' }}>
+                    <div className="banner-line left-line"></div>
+                    <h2 className="banner-title">PRESS FEATURES</h2>
+                    <div className="banner-line right-line"></div>
+                </div>
+                <div className="press-grid">
+                    <div className="press-card">
+                        <div className="press-image-container">
+                            <img src={BillyV} alt="Billy V Live" className="press-image" />
+                        </div>
+                        <div className="press-text">
+                            <p>This week on Billy V Live, Billy sits down with composer Logyn Okuda, an Iolani graduate who writes scores for some the world’s biggest box office hits.</p>
+                        </div>
+                    </div>
+                    <div className="press-card">
+                        <div className="press-image-container">
+                            <img src={ClassicalPacific} alt="Classical Pacific" className="press-image" />
+                        </div>
+                        <div className="press-text">
+                            <p>Composer Logyn Okuda returns to Classical Pacific with updates on his career, orchestrating for composer Michael Giacchino on Butterfly, The Fantastic Four, and most recently, the upcoming Zootopia 2. Okuda will back home in the islands this week as one of 5 Hawai`i composers featured in the Hawai`i Symphony Orchestraʻs Symphony of the Hawai`i Seas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="section-banner" style={{ marginTop: '80px', marginBottom: '40px' }}>
+                    <div className="banner-line left-line"></div>
+                    <h2 className="banner-title">OTHER WORK</h2>
+                    <div className="banner-line right-line"></div>
+                </div>
+                <div className="other-work-list">
+                    <div className="other-work-item">
+                        <div className="other-work-image-container">
+                            <img src={Skyfall} alt="Skyfall Rescore" className="other-work-image" />
+                        </div>
+                        <p className="other-work-text">Rescore of ‘Skyfall’ (2012) motorcycle chase sequence.</p>
+                    </div>
+                    <div className="other-work-item">
+                        <div className="other-work-image-container">
+                            <iframe 
+                                className="other-work-video" 
+                                src="https://www.youtube.com/embed/Q0-nb3VRV4A?si=9YkWll1uuBSV5U-w" 
+                                title="YouTube video player" 
+                                frameBorder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerPolicy="strict-origin-when-cross-origin" 
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                        <p className="other-work-text">‘Elegy for a Flower’, a tone poem for my late grandmother, <br />as performed by Budapest Scoring.</p>
+                    </div>
                 </div>
             </section>
         </main>

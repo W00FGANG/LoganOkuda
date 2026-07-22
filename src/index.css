@@ -18,7 +18,7 @@
     --font-secondary: 'Kanit', sans-serif;
     --font-tertiary: 'Inter', sans-serif;
     --font-quaternary: 'Poller One', cursive;
-    --font-quinary: 'Raleway', sans-serif;
+    --font-quinary: 'Raleway', regular;
 }
 
 *, *::before, *::after {

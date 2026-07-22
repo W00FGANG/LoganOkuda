@@ -1,31 +1,5 @@
-.biography-divider-banner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin: 50px auto 0;
-}
-.biography-divider-title {
-    font-family: var(--font-primary);
-    font-weight: 400;
-    font-size: 45px;
-    text-align: center;
-    width: 544px;
-    flex-shrink: 0;
-}
-.biography-divider-line {
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-.biography-divider-line.left-line {
-    width: 368px;
-    flex-shrink: 0;
-}
-.biography-divider-line.right-line {
-    flex: 1;
-}
-
 .biography-page {
-    background-color: #0f1115; /* Match theme */
+    background: linear-gradient(to top, #043661 0%, #123b5f 48.08%, #242424 100%);
     color: #ffffff;
     min-height: 100vh;
 }
@@ -80,13 +54,13 @@
 }
 
 .biography-banner-btn:hover {
-    background-color: #0d2646;
+    background-color: #3277d1;
     transform: translateY(-2px);
 }
 
 /* Original Content Section */
 .biography-section {
-    padding: 80px 20px;
+    padding: 100px 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -102,7 +76,6 @@
     width: 100%;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .biography-image {
@@ -123,21 +96,117 @@
 }
 
 .biography-text {
+    font-family: var(--font-quinary);
+    font-size: 1.2rem;
+    line-height: 2;
+    color: #94A3B8;
+    font-weight: 300;
+}
+
+.biography-full-text {
+    margin-top: 60px;
+}
+
+/* Press Features Section */
+.press-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.press-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.press-image-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 320px;
+}
+
+.press-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.press-image:hover {
+    transform: scale(1.02);
+}
+
+.press-text {
+    font-family: var(--font-quinary);
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #c9d1d9;
+    color: #94A3B8;
     font-weight: 300;
+}
+
+/* Other Work Section */
+.other-work-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.other-work-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 802px;
+}
+
+.other-work-image-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.other-work-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.other-work-image:hover {
+    transform: scale(1.02);
+}
+
+.other-work-video {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.other-work-text {
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--color-white);
+    margin: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .biography-grid {
+    .biography-grid, .press-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
     
     .banner-title {
-        font-size: 3rem;
+        font-size: 1rem;
     }
 }
 
@@ -157,4 +226,18 @@
     .banner-subtitle {
         font-size: 1rem;
     }
+}
+
+.banner-line {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.banner-line.left-line {
+    width: 368px;
+    flex-shrink: 0;
+}
+
+.banner-line.right-line {
+    flex: 1;
 }
