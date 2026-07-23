@@ -4,11 +4,18 @@ import { compositionProjects, orchestrationProjects, ProjectData } from '../data
 import IMDbIcon from '../assets/IMDBLogo.png';
 
 export default function Credits() {
-    const [activeTab, setActiveTab] = useState<'composition' | 'orchestration'>('orchestration');
+    const [activeTab, setActiveTab] = useState<'composition' | 'orchestration'>(() => {
+        const savedTab = sessionStorage.getItem('creditsTab');
+        if (savedTab === 'composition' || savedTab === 'orchestration') {
+            return savedTab;
+        }
+        return 'orchestration';
+    });
     const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        sessionStorage.removeItem('creditsTab');
     }, []);
 
     // Scroll to top when a project is selected
@@ -86,11 +93,26 @@ export default function Credits() {
                                         <div className="project-detail-description-wrapper">
                                             <p className="project-detail-description">{selectedProject.description}</p>
                                         </div>
-                                        <div className="project-detail-subtitle-wrapper">
-                                            <p className="project-detail-subtitle">Albums</p>
-                                        </div>
+                                        {(selectedProject.albumEmbedUrl || selectedProject.albumCover || selectedProject.imdbUrl) && (
+                                            <div className="project-detail-subtitle-wrapper">
+                                                <p className="project-detail-subtitle">Links</p>
+                                            </div>
+                                        )}
                                         <div className="project-detail-links">
-                                            <img src={selectedProject.albumCover} alt="Album Cover" className="project-album-cover" />
+                                            {selectedProject.albumEmbedUrl ? (
+                                                <iframe 
+                                                    allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
+                                                    frameBorder="0" 
+                                                    height="300" 
+                                                    style={{ width: '100%', maxWidth: '660px', overflow: 'hidden', borderRadius: '10px' }}
+                                                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
+                                                    src={selectedProject.albumEmbedUrl}
+                                                ></iframe>
+                                            ) : selectedProject.albumCover && (
+                                                <a href={selectedProject.albumUrl || '#'} target={selectedProject.albumUrl ? "_blank" : "_self"} rel="noreferrer" className="album-link" onClick={(e) => { if (!selectedProject.albumUrl) e.preventDefault(); }}>
+                                                    <img src={selectedProject.albumCover} alt="Album Cover" className="project-album-cover" />
+                                                </a>
+                                            )}
                                             {selectedProject.imdbUrl && (
                                                 <a href={selectedProject.imdbUrl} target="_blank" rel="noreferrer" className="imdb-link">
                                                     <img src={IMDbIcon} alt="IMDb" className="imdb-icon" />
@@ -102,26 +124,26 @@ export default function Credits() {
                             </div>
 
                             {/* Trailer Section */}
-                            <div className="section-banner trailer-banner">
-                                <div className="banner-line left-line"></div>
-                                <h1 className="banner-title">TRAILER</h1>
-                                <div className="banner-line right-line"></div>
-                            </div>
-                            
-                            <div className="project-trailer-container">
-                                {selectedProject.trailerUrl ? (
-                                    <iframe 
-                                        className="project-trailer-video" 
-                                        src={selectedProject.trailerUrl} 
-                                        title="Trailer" 
-                                        frameBorder="0" 
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                        allowFullScreen
-                                    ></iframe>
-                                ) : (
-                                    <div className="no-trailer">Trailer unavailable</div>
-                                )}
-                            </div>
+                            {selectedProject.trailerUrl && (
+                                <>
+                                    <div className="section-banner trailer-banner">
+                                        <div className="banner-line left-line"></div>
+                                        <h1 className="banner-title">TRAILER</h1>
+                                        <div className="banner-line right-line"></div>
+                                    </div>
+                                    
+                                    <div className="project-trailer-container">
+                                        <iframe 
+                                            className="project-trailer-video" 
+                                            src={selectedProject.trailerUrl} 
+                                            title="Trailer" 
+                                            frameBorder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     )}
                 </div>

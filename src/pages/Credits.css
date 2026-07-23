@@ -104,7 +104,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 66px;
+    height: 120px;
 }
 
 .project-detail-title {
@@ -113,45 +113,45 @@
     font-size: 70px;
     color: var(--selected-color, #9c925c);
     margin: 0;
-    line-height: 24px;
+    line-height: 64px;
 }
 
 .project-detail-description-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 90px;
+    height: 50px;
 }
 
 .project-detail-description {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     margin: 0;
-    line-height: 35px;
+    line-height: 30px;
 }
 
 .project-detail-subtitle-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 66px;
+    height: 56px;
 }
 
 .project-detail-subtitle {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    font-size: 50px;
+    font-size: 40px;
     color: white;
     margin: 0;
     letter-spacing: -0.6px;
-    line-height: 30px;
+    line-height: 20px;
 }
 
 .project-detail-links {
     display: flex;
-    gap: 35px;
+    gap: 20px;
     align-items: flex-start;
     flex-wrap: wrap;
 }
@@ -161,6 +161,17 @@
     height: 216px;
     object-fit: cover;
     pointer-events: none;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.album-link {
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-link:hover {
+    transform: scale(1.05);
 }
 
 .imdb-link {
