@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import Events from './components/Events';
 import Footer from './components/Footer';
 import Biography from './pages/Biography';
+import Credits from './pages/Credits';
 import './index.css';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (currentHash === '#biography') return;
+    if (currentHash === '#biography' || currentHash === '#credits') return;
 
     const observerOptions = {
       root: null,
@@ -48,6 +49,8 @@ function App() {
       <Header />
       {currentHash === '#biography' ? (
         <Biography />
+      ) : currentHash === '#credits' ? (
+        <Credits />
       ) : (
         <main>
           <Hero />
