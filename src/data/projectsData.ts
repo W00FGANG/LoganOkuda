@@ -1,11 +1,8 @@
 import ClaraPoster from '../assets/ClaraAllTheWay.png';
 import EastWestPoster from '../assets/EastMeetsWest.png';
 import HomePoster from '../assets/WhatWeCallHome.png';
-import HomePosterAlbum from '../assets/WhatWeCallHomeAlbum.webp';
 import VcnnPoster from '../assets/ValhallaCallsNoNames.png';
-import VcnnPosterAlbum from '../assets/ValhallaAlbum.webp';
 import ButterflyPoster from '../assets/Butterfly.png';
-import ButterflyAlbumCover from '../assets/ButterflyAlbumCover.png';
 import MiragePoster from '../assets/Mirage.png';
 import SalvadorPoster from '../assets/Salvador.png';
 
@@ -20,7 +17,6 @@ export interface ProjectData {
     alt: string;
     src: string;
     description: string;
-    albumCover?: string;
     albumUrl?: string;
     albumEmbedUrl?: string;
     imdbUrl?: string;
@@ -70,7 +66,6 @@ export const compositionProjects: ProjectData[] = [
         alt: 'Butterfly',
         src: ButterflyPoster,
         description: 'Released August 13th, 2025. Produced by: Amazon MGM Studios, 3AD, & Boom! Studios.',
-        albumCover: ButterflyAlbumCover,
         albumEmbedUrl: 'https://embed.music.apple.com/us/album/butterfly-prime-video-original-series-soundtrack/1831125115',
         imdbUrl: 'https://www.imdb.com/title/tt26672404/',
         trailerUrl: 'https://www.youtube.com/embed/RBmyiyZba3s?si=XA3xgO4o_RnwSOVL'
@@ -128,7 +123,6 @@ export const orchestrationProjects: ProjectData[] = [
         alt: 'Butterfly',
         src: ButterflyPoster,
         description: 'Released August 13th, 2025. Produced by: Amazon MGM Studios, 3AD, & Boom! Studios.',
-        albumCover: ButterflyAlbumCover,
         albumEmbedUrl: 'https://embed.music.apple.com/us/album/butterfly-prime-video-original-series-soundtrack/1831125115',
         imdbUrl: 'https://www.imdb.com/title/tt26672404/',
         trailerUrl: 'https://www.youtube.com/embed/RBmyiyZba3s?si=XA3xgO4o_RnwSOVL'

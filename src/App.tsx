@@ -6,6 +6,8 @@ import Events from './components/Events';
 import Footer from './components/Footer';
 import Biography from './pages/Biography';
 import Credits from './pages/Credits';
+import Listen from './pages/Listen';
+import Contact from './pages/Contact';
 import './index.css';
 
 function App() {
@@ -18,7 +20,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (currentHash === '#biography' || currentHash === '#credits') return;
+    if (currentHash === '#biography' || currentHash === '#credits' || currentHash === '#listen' || currentHash === '#contact') return;
 
     const observerOptions = {
       root: null,
@@ -51,6 +53,10 @@ function App() {
         <Biography />
       ) : currentHash === '#credits' ? (
         <Credits />
+      ) : currentHash === '#listen' ? (
+        <Listen />
+      ) : currentHash === '#contact' ? (
+        <Contact />
       ) : (
         <main>
           <Hero />
