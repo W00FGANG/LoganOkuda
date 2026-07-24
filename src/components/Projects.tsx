@@ -20,17 +20,28 @@ export default function Projects() {
                     <video 
                         src={ComposerReel} 
                         className="project-poster project-poster-1" 
-                        autoPlay loop muted playsInline 
-                        ref={(el) => { if (el) el.playbackRate = 0.6; }}
+                        autoPlay muted playsInline
+                        onEnded={(e) => {
+                            e.currentTarget.currentTime = 0;
+                            e.currentTarget.play();
+                        }}
                     />
                     <div className="project-text-overlay">
                         <h3>Composition<br />Credits</h3>
                     </div>
                 </div>
                 <div className="project-card animate-on-scroll" onClick={() => handleNavigate('orchestration')} style={{ cursor: 'pointer' }}>
-                    <video src={OrchestraReel} className="project-poster project-poster-2" autoPlay loop muted playsInline />
+                    <video 
+                        src={OrchestraReel} 
+                        className="project-poster project-poster-2" 
+                        autoPlay muted playsInline
+                        onEnded={(e) => {
+                            e.currentTarget.currentTime = 0;
+                            e.currentTarget.play();
+                        }}
+                    />
                     <div className="project-text-overlay">
-                        <h3>Orchestration Credits</h3>
+                        <h3>Orchestration<span className="desktop-space"> </span><br className="mobile-break" />Credits</h3>
                     </div>
                 </div>
             </div>

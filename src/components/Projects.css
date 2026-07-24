@@ -63,6 +63,10 @@
     text-shadow: 0px 4px 4px var(--color-black);
 }
 
+.mobile-break {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
@@ -75,5 +79,11 @@
     .project-text-overlay {
         bottom: 50%;
         transform: translateY(50%);
+    }
+    .mobile-break {
+        display: block;
+    }
+    .desktop-space {
+        display: none;
     }
 }
