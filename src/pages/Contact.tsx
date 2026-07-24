@@ -55,11 +55,11 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className="contact-social-icons">
-                        <a href="#"><img src={imgBrandsInstagram} alt="Instagram" /></a>
-                        <a href="#"><img src={imgBrandsLinkedin} alt="LinkedIn" /></a>
-                        <a href="#"><img src={imgBrandsYoutube} alt="YouTube" /></a>
-                        <a href="#"><img src={imgAppleMusic} alt="Apple Music" /></a>
-                        <a href="#"><img src={imgIMDb} alt="IMDb" /></a>
+                        <a href="https://www.instagram.com/the_logokuda/" target="_blank" rel="noopener noreferrer"><img src={imgBrandsInstagram} alt="Instagram" /></a>
+                        <a href="https://www.linkedin.com/in/logyn-okuda-ab9322243/" target="_blank" rel="noopener noreferrer"><img src={imgBrandsLinkedin} alt="LinkedIn" /></a>
+                        <a href="https://www.youtube.com/@logpog4660" target="_blank" rel="noopener noreferrer"><img src={imgBrandsYoutube} alt="YouTube" /></a>
+                        <a href="https://music.apple.com/us/artist/logyn-okuda/1713800649" target="_blank" rel="noopener noreferrer"><img src={imgAppleMusic} alt="Apple Music" /></a>
+                        <a href="https://www.imdb.com/name/nm14950716/?ref_=ext_shr_sms" target="_blank" rel="noopener noreferrer"><img src={imgIMDb} alt="IMDb" /></a>
                     </div>
                 </div>
             </div>
