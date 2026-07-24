@@ -7,7 +7,8 @@
 .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    padding: 0 250px;
+    gap: 40px; /* Prevents cards from ever touching */
+    padding: 0 15%; /* Fluid padding instead of rigid pixels */
 }
 
 .event-card {
@@ -109,14 +110,34 @@
 
 @media (max-width: 1024px) {
     .events-grid {
-        gap: 20px;
+        gap: 30px;
         padding: 0 20px;
     }
-    .event-title { font-size: 35px; }
-    .event-desc { font-size: 20px; }
+    .event-card {
+        max-width: 280px; /* Scaled down card width */
+    }
+    .event-image-wrapper {
+        height: 150px; /* Scaled down image height */
+    }
+    .event-title { 
+        font-size: 18px; /* Scaled down from base */
+        min-height: 45px;
+    }
+    .event-desc { 
+        font-size: 13px; /* Scaled down from base */
+    }
+    .event-content {
+        padding: 15px; /* Less padding */
+        min-height: auto;
+    }
+    .event-cta {
+        height: 35px; /* Smaller button */
+    }
+    .cta-text {
+        font-size: 15px; /* Smaller button text */
+    }
 }
 
 @media (max-width: 768px) {
     .events-grid { grid-template-columns: 1fr; }
-    .event-content { height: auto; }
 }

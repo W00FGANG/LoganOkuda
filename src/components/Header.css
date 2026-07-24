@@ -23,6 +23,25 @@
     position: relative;
 }
 
+.site-logo {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Kanit', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--color-white);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    z-index: 105;
+    transition: color 0.3s ease;
+}
+
+.site-logo:hover {
+    color: var(--color-gold);
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -67,9 +86,11 @@
     flex-direction: column;
     gap: 5px;
     position: absolute;
-    right: 2rem;
+    right: 1rem;
     top: 50%;
     transform: translateY(-50%);
+    padding: 15px; /* Increase clickable area */
+    z-index: 105;
 }
 
 .mobile-menu-toggle span {
@@ -81,14 +102,23 @@
     transition: 0.3s;
 }
 
-@media (max-width: 768px) {
+@media (max-width:  1000px) {
     .site-header {
-        padding-top: 20px;
+        padding-top: 15px;
         background-color: rgba(15, 23, 42, 0.95);
     }
     
+    .site-logo {
+        left: 1rem;
+        font-size: 22px;
+    }
+    
+    .nav-container {
+        min-height: 50px; /* Ensure container has height so toggle button doesn't collapse */
+    }
+    
     .nav-links {
-        display: none;
+        display: flex;
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -97,10 +127,18 @@
         background-color: rgba(15, 23, 42, 0.98);
         padding: 20px 0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        pointer-events: none;
     }
     
     .nav-links.active {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: all;
     }
     
     .separator, .nav-underline {
