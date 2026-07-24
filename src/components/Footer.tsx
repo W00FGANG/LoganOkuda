@@ -3,11 +3,11 @@ import InstagramIcon from '../assets/instagram.png';
 import LinkedInIcon from '../assets/linkedin.png';
 import YouTubeIcon from '../assets/youtube.png';
 import AppleMusicIcon from '../assets/apple_music.png';
-import IMDbIcon from '../assets/IMDb_Icon.png';
+import IMDbIcon from '../assets/IMDBLogo.png';
 
 export default function Footer() {
     return (
-        <footer id="contact" className="site-footer">
+        <footer className="site-footer">
             <div className="footer-content">
                 <h2 className="footer-title">LOGYN OKUDA</h2>
                 <div className="footer-divider"></div>

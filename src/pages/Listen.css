@@ -1,0 +1,135 @@
+.listen-page {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to top, #00529a 0%, #123b5f 48%, #0f1015 100%);
+    color: white;
+}
+
+.listen-banner {
+    height: 70vh;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    position: relative;
+    margin-top: 0;
+}
+
+.listen-banner-content {
+    max-width: 600px;
+    margin-top: -50px;
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.listen-banner-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.listen-banner-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    color: #e2e8f0;
+}
+
+.listen-scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    bottom: 50px;
+    left: 25%;
+    font-family: 'Raleway', sans-serif;
+}
+
+.listen-scroll-indicator p {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.arrow-down {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+}
+
+.listen-section {
+    padding: 80px 10% 120px;
+}
+
+.listen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.listen-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.listen-item-title {
+    font-family: 'Kanit', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.audio-placeholder {
+    width: 100%;
+    aspect-ratio: 566 / 400;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border: 1px solid #333;
+}
+
+.audio-placeholder-content {
+    color: #888;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+    .listen-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .listen-banner-title {
+        font-size: 2.2rem;
+    }
+    .listen-banner-text {
+        font-size: 1.2rem;
+    }
+    .listen-scroll-indicator {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
