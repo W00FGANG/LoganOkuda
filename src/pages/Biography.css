@@ -205,8 +205,12 @@
         gap: 40px;
     }
     
-    .banner-title {
-        font-size: 1rem;
+    .biography-banner {
+        background-position: 25% center; /* Shifts focus to the left to show the man */
+    }
+    
+    .biography-banner-title {
+        font-size: 2.5rem;
     }
 }
 
@@ -215,29 +219,33 @@
         padding: 40px 20px;
     }
     
+    .biography-banner {
+        background-position: 15% center; /* Shifts focus further left on mobile */
+    }
+    
     .biography-text {
         font-size: 1rem;
     }
 
-    .banner-title {
+    .biography-banner-title {
         font-size: 2.5rem;
     }
 
-    .banner-subtitle {
+    .biography-banner-subtitle {
         font-size: 1rem;
     }
 }
 
-.banner-line {
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.banner-line.left-line {
+/* Biography Banner Line Overrides */
+.biography-section .banner-line.left-line {
     width: 368px;
     flex-shrink: 0;
+    max-width: 40vw; /* Keeps it scalable on smaller screens */
 }
 
-.banner-line.right-line {
-    flex: 1;
+@media (max-width: 768px) {
+    .biography-section .banner-line.left-line {
+        width: auto;
+        flex: 1; /* Make it perfectly symmetrical on mobile */
+    }
 }

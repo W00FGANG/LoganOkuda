@@ -67,3 +67,49 @@ img {
 .animate-on-scroll.is-visible {
     animation: fadeIn 0.8s ease forwards;
 }
+
+/* Section Banners */
+.section-banner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    overflow: hidden;
+}
+
+.banner-title {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: clamp(24px, 5vw, 45px);
+    text-align: center;
+    padding: 0 20px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.banner-line {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    flex: 1;
+}
+
+.animate-on-scroll .banner-line {
+    transform: scaleX(0);
+}
+
+.animate-on-scroll.is-visible .banner-line.left-line {
+    animation: scaleLine 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform-origin: right;
+}
+
+.animate-on-scroll.is-visible .banner-line.right-line {
+    animation: scaleLine 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform-origin: left;
+}
+
+@keyframes scaleLine {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+}

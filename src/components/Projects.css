@@ -3,41 +3,11 @@
     margin: 0 auto;
 }
 
-.section-banner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 50px 0;
-}
-
-.banner-title {
-    font-family: var(--font-primary);
-    font-weight: 400;
-    font-size: 45px;
-    text-align: center;
-    width: 544px;
-    flex-shrink: 0;
-}
-
-.banner-line {
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.banner-line.left-line {
-    flex: 1;
-}
-
-.banner-line.right-line {
-    flex: 1;
-}
 
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 650px;
+    height: clamp(350px, 45vw, 650px);
 }
 
 .project-card {
@@ -88,7 +58,7 @@
 .project-text-overlay h3 {
     font-family: var(--font-quaternary);
     font-weight: 400;
-    font-size: 50px;
+    font-size: clamp(28px, 4vw, 50px);
     line-height: 1.38;
     text-shadow: 0px 4px 4px var(--color-black);
 }
@@ -99,7 +69,8 @@
         height: auto;
     }
     .project-card {
-        height: 400px;
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
     .project-text-overlay {
         bottom: 50%;

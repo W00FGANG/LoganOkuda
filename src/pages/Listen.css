@@ -21,11 +21,10 @@
 .listen-banner-content {
     max-width: 600px;
     margin-top: -50px;
-    padding-left: 10%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .listen-banner-title {
@@ -51,7 +50,8 @@
     cursor: pointer;
     position: absolute;
     bottom: 50px;
-    left: 25%;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'Raleway', sans-serif;
 }
 
@@ -122,14 +122,13 @@
 }
 
 @media (max-width: 768px) {
+    .listen-banner {
+        background-position: 80% 20%; /* Shifts image to the right to show the person */
+    }
     .listen-banner-title {
         font-size: 2.2rem;
     }
     .listen-banner-text {
         font-size: 1.2rem;
-    }
-    .listen-scroll-indicator {
-        left: 50%;
-        transform: translateX(-50%);
     }
 }

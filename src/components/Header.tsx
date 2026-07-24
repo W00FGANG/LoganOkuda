@@ -20,6 +20,12 @@ export default function Header() {
     return (
         <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
             <nav className="nav-container">
+                <a href="#home" className="site-logo" onClick={(e) => {
+                    closeMenu();
+                    if (window.location.hash === '#home' || window.location.hash === '') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }}>LOGYN OKUDA</a>
                 <button className={`mobile-menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle navigation">
                     <span></span><span></span><span></span>
                 </button>

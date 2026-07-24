@@ -3,6 +3,32 @@ import './Credits.css';
 import { compositionProjects, orchestrationProjects, ProjectData } from '../data/projectsData';
 import IMDbIcon from '../assets/IMDBLogo.png';
 
+function InteractiveIframe({ src, className, style, allow, sandbox, title, height }: any) {
+    const [isInteractive, setIsInteractive] = useState(false);
+    return (
+        <div 
+            style={{ position: 'relative', width: style?.width || '100%', maxWidth: style?.maxWidth, height: height || style?.height || '100%', borderRadius: style?.borderRadius, overflow: 'hidden', ...style }}
+            className={className}
+            onMouseEnter={() => setIsInteractive(true)}
+            onMouseLeave={() => setIsInteractive(false)}
+            onClick={() => setIsInteractive(true)}
+        >
+            {!isInteractive && (
+                <div style={{ position: 'absolute', inset: 0, zIndex: 10, cursor: 'pointer' }}></div>
+            )}
+            <iframe
+                src={src}
+                style={{ width: '100%', height: '100%', pointerEvents: isInteractive ? 'auto' : 'none', border: 'none' }}
+                allow={allow}
+                sandbox={sandbox}
+                title={title}
+                frameBorder="0"
+                allowFullScreen
+            ></iframe>
+        </div>
+    );
+}
+
 export default function Credits() {
     const [activeTab, setActiveTab] = useState<'composition' | 'orchestration'>(() => {
         const savedTab = sessionStorage.getItem('creditsTab');
@@ -93,25 +119,20 @@ export default function Credits() {
                                         <div className="project-detail-description-wrapper">
                                             <p className="project-detail-description">{selectedProject.description}</p>
                                         </div>
-                                        {(selectedProject.albumEmbedUrl || selectedProject.albumCover || selectedProject.imdbUrl) && (
+                                        {(selectedProject.albumEmbedUrl || selectedProject.imdbUrl) && (
                                             <div className="project-detail-subtitle-wrapper">
                                                 <p className="project-detail-subtitle">Links</p>
                                             </div>
                                         )}
                                         <div className="project-detail-links">
-                                            {selectedProject.albumEmbedUrl ? (
-                                                <iframe 
+                                            {selectedProject.albumEmbedUrl && (
+                                                <InteractiveIframe 
                                                     allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
-                                                    frameBorder="0" 
                                                     height="300" 
                                                     style={{ width: '100%', maxWidth: '660px', overflow: 'hidden', borderRadius: '10px' }}
                                                     sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
                                                     src={selectedProject.albumEmbedUrl}
-                                                ></iframe>
-                                            ) : selectedProject.albumCover && (
-                                                <a href={selectedProject.albumUrl || '#'} target={selectedProject.albumUrl ? "_blank" : "_self"} rel="noreferrer" className="album-link" onClick={(e) => { if (!selectedProject.albumUrl) e.preventDefault(); }}>
-                                                    <img src={selectedProject.albumCover} alt="Album Cover" className="project-album-cover" />
-                                                </a>
+                                                />
                                             )}
                                             {selectedProject.imdbUrl && (
                                                 <a href={selectedProject.imdbUrl} target="_blank" rel="noreferrer" className="imdb-link">
@@ -133,14 +154,12 @@ export default function Credits() {
                                     </div>
                                     
                                     <div className="project-trailer-container">
-                                        <iframe 
+                                        <InteractiveIframe 
                                             className="project-trailer-video" 
                                             src={selectedProject.trailerUrl} 
                                             title="Trailer" 
-                                            frameBorder="0" 
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                            allowFullScreen
-                                        ></iframe>
+                                        />
                                     </div>
                                 </>
                             )}
