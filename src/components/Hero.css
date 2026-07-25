@@ -45,6 +45,17 @@
     margin-top: -150px;
 }
 
+@keyframes heroFadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero-title {
     font-family: var(--font-primary);
     font-weight: 700;
@@ -52,6 +63,9 @@
     line-height: 1;
     text-shadow: 0px 4px 4px rgba(0,0,0,0.6);
     margin-bottom: 25px;
+    opacity: 0;
+    animation: heroFadeSlideUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.2s;
 }
 
 .hero-subtitle {
@@ -62,6 +76,9 @@
     letter-spacing: -0.6px;
     text-shadow: 0px 4px 4px rgba(0,0,0,0.6);
     margin-bottom: 25px;
+    opacity: 0;
+    animation: heroFadeSlideUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.5s;
 }
 
 /* Video styles removed */

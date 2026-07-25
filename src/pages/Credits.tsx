@@ -116,6 +116,20 @@ export default function Credits() {
                                         <div className="project-detail-title-wrapper">
                                             <p className="project-detail-title">{selectedProject.title}</p>
                                         </div>
+                                        {(selectedProject.award || selectedProject.role) && (
+                                            <div className="project-detail-tags">
+                                                {selectedProject.award && (
+                                                    <span className="project-tag award-tag">
+                                                        {selectedProject.award}
+                                                    </span>
+                                                )}
+                                                {selectedProject.role && (
+                                                    <span className="project-tag role-tag">
+                                                        {selectedProject.role}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        )}
                                         <div className="project-detail-description-wrapper">
                                             <p className="project-detail-description">{selectedProject.description}</p>
                                         </div>
