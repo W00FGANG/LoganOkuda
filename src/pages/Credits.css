@@ -86,7 +86,7 @@
 
 .project-detail-poster {
     width: 100%;
-    max-width: 321px;
+    max-width: 421px;
     height: auto;
     aspect-ratio: 321 / 486;
     flex-shrink: 0;
@@ -157,15 +157,6 @@
     gap: 20px;
     align-items: flex-start;
     flex-wrap: wrap;
-}
-
-.project-album-cover {
-    width: 216px;
-    height: 216px;
-    object-fit: cover;
-    pointer-events: none;
-    border-radius: 8px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .album-link {

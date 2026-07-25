@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import './Biography.css';
 import BWLogynBio from '../assets/BWLogynBio.png';
-import BannerImage from '../assets/Banner Image.png';
+import BannerImage from '../assets/BannerImage.png';
 import ClassicalPacific from '../assets/ClassicalPacific.png';
-import SkyfallVideo from '../assets/SkyFall.mp4';
 
 export default function Biography() {
     useEffect(() => {
@@ -15,9 +14,6 @@ export default function Biography() {
             <section className="biography-banner" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("${BannerImage}")` }}>
                 <div className="biography-banner-content">
                     <h1 className="biography-banner-title">BIOGRAPHY</h1>
-                    <p className="biography-banner-subtitle">
-                        a fast-rising film and television music composer and orchestrator. Originally from Hawaii, he has quickly made a name for himself in Hollywood through his collaborative work under Oscar-winning composer Michael Giacchino.
-                    </p>
                     <button 
                         className="biography-banner-btn"
                         onClick={() => document.querySelector('.biography-section')?.scrollIntoView({ behavior: 'smooth' })}
@@ -29,6 +25,7 @@ export default function Biography() {
                 <div className="biography-content">
                     <div className="biography-grid">
                         <div className="biography-text-container">
+                            <h1 className="biography-title">Logyn Okuda is a film/tv composer from Hawaii in Los Angeles</h1>
                             <p className="biography-text">
                                 He recently scored Emmy-nominated Henry Ian Cusick’s (LOST) new short, Salvador, political spy-thriller Granadilla, starring Faran Tahir (Iron Man, Star Trek), indie video game Agebringer by Space Base Games (2026), and Nightbound: Paralysis by FlickerLight Games (2027). <br /> <br /> In addition, Okuda collaborates and works for composer Michael Giacchino, orchestrating and assisting on projects such as Marvel’s The Fantastic Four: First Steps, Disney’s Zootopia 2, and Warner Bros.’ The End of Oak Street. Additional music credits include Skydance Animation’s Ray Gunn (dir. by Brad Bird), Amazon Prime’s Butterfly, Marvel Television’s VisionQuest. Okuda worked with Michael’s son, Mick Giacchino, on an arrangement of a new Muppets song for The Game Awards in December of 2025.
                             </p>
@@ -80,12 +77,12 @@ export default function Biography() {
                         </div>
                     </a>
                 </div>
-                <div className="section-banner" style={{ marginTop: '80px', marginBottom: '40px' }}>
-                    <div className="banner-line left-line"></div>
+                 {/* <div className="section-banner" style={{ marginTop: '80px', marginBottom: '40px' }}>
+                      <div className="banner-line left-line"></div>
                     <h2 className="banner-title">OTHER WORK</h2>
                     <div className="banner-line right-line"></div>
                 </div>
-                <div className="other-work-list">
+                 <div className="other-work-list">
                     <div className="other-work-item">
                         <div className="other-work-image-container">
                             <video src={SkyfallVideo} className="other-work-image" controls />
@@ -106,7 +103,7 @@ export default function Biography() {
                         </div>
                         <p className="other-work-text">‘Elegy for a Flower’, a tone poem for my late grandmother, <br />as performed by Budapest Scoring.</p>
                     </div>
-                </div>
+                </div> */}
             </section>
         </main>
     );
