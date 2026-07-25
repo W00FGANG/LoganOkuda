@@ -86,7 +86,7 @@
 
 .project-detail-poster {
     width: 100%;
-    max-width: 321px;
+    max-width: 421px;
     height: auto;
     aspect-ratio: 321 / 486;
     flex-shrink: 0;
@@ -107,7 +107,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 120px;
+    min-height: 120px;
+    height: auto;
 }
 
 .project-detail-title {
@@ -123,7 +124,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 50px;
+    min-height: 50px;
+    height: auto;
 }
 
 .project-detail-description {
@@ -139,7 +141,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 56px;
+    min-height: 56px;
+    height: auto;
 }
 
 .project-detail-subtitle {
@@ -157,15 +160,6 @@
     gap: 20px;
     align-items: flex-start;
     flex-wrap: wrap;
-}
-
-.project-album-cover {
-    width: 216px;
-    height: 216px;
-    object-fit: cover;
-    pointer-events: none;
-    border-radius: 8px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .album-link {
@@ -410,4 +404,36 @@
     .project-trailer-container {
         width: calc(100% - 40px); /* Ensures space between the trailer and screen edges */
     }
+}
+
+.project-detail-tags {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.project-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.award-tag {
+    background-color: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #ffd700;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.role-tag {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #e2e8f0;
 }

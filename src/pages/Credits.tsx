@@ -116,28 +116,42 @@ export default function Credits() {
                                         <div className="project-detail-title-wrapper">
                                             <p className="project-detail-title">{selectedProject.title}</p>
                                         </div>
+                                        {(selectedProject.award || selectedProject.role) && (
+                                            <div className="project-detail-tags">
+                                                {selectedProject.award && (
+                                                    <span className="project-tag award-tag">
+                                                        {selectedProject.award}
+                                                    </span>
+                                                )}
+                                                {selectedProject.role && (
+                                                    <span className="project-tag role-tag">
+                                                        {selectedProject.role}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        )}
                                         <div className="project-detail-description-wrapper">
                                             <p className="project-detail-description">{selectedProject.description}</p>
                                         </div>
                                         {(selectedProject.albumEmbedUrl || selectedProject.imdbUrl) && (
-                                            <div className="project-detail-subtitle-wrapper">
+                                            <div className="project-detail-subtitle-wrapper" style={{ flexDirection: 'row', alignItems: 'center', gap: '20px', justifyContent: 'flex-start' }}>
                                                 <p className="project-detail-subtitle">Links</p>
+                                                {selectedProject.imdbUrl && (
+                                                    <a href={selectedProject.imdbUrl} target="_blank" rel="noreferrer" className="imdb-link" style={{ height: '40px', display: 'flex', alignItems: 'center' }}>
+                                                        <img src={IMDbIcon} alt="IMDb" className="imdb-icon" style={{ height: '100%', width: 'auto' }} />
+                                                    </a>
+                                                )}
                                             </div>
                                         )}
                                         <div className="project-detail-links">
                                             {selectedProject.albumEmbedUrl && (
                                                 <InteractiveIframe 
                                                     allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
-                                                    height="300" 
-                                                    style={{ width: '100%', maxWidth: '660px', overflow: 'hidden', borderRadius: '10px' }}
+                                                    height="450" 
+                                                    style={{ width: '100%', maxWidth: '860px', height: '400px', overflow: 'hidden', borderRadius: '10px' }}
                                                     sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
                                                     src={selectedProject.albumEmbedUrl}
                                                 />
-                                            )}
-                                            {selectedProject.imdbUrl && (
-                                                <a href={selectedProject.imdbUrl} target="_blank" rel="noreferrer" className="imdb-link">
-                                                    <img src={IMDbIcon} alt="IMDb" className="imdb-icon" />
-                                                </a>
                                             )}
                                         </div>
                                     </div>

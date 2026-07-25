@@ -23,14 +23,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
 }
 
 .biography-banner-title {
-    font-family: var(--font-primary);
+    font-family: 'Raleway', sans-serif;
     font-size: 4rem;
-    font-weight: 100;
+    font-weight: 600;
     margin-bottom: 20px;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .biography-banner-subtitle {
@@ -206,7 +209,7 @@
     }
     
     .biography-banner {
-        background-position: 25% center; /* Shifts focus to the left to show the man */
+        background-position: 85% center; /* Shifts focus to the right to show the man */
     }
     
     .biography-banner-title {
@@ -220,19 +223,15 @@
     }
     
     .biography-banner {
-        background-position: 15% center; /* Shifts focus further left on mobile */
+        background-position: 90% center; /* Shifts focus further right on mobile */
     }
     
     .biography-text {
         font-size: 1rem;
     }
-
     .biography-banner-title {
         font-size: 2.5rem;
-    }
-
-    .biography-banner-subtitle {
-        font-size: 1rem;
+        font-weight: 400;
     }
 }
 

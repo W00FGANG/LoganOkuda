@@ -44,14 +44,6 @@ export default function Listen() {
             <section className="listen-banner" style={{ backgroundImage: `linear-gradient(90deg, #0a0a0a 0%, rgba(10, 10, 10, 0.8) 40%, rgba(10, 10, 10, 0.2) 100%), url("${BannerImage}")` }}>
                 <div className="listen-banner-content">
                     <h1 className="listen-banner-title">ORIGINAL MUSIC</h1>
-                    <div className="listen-banner-text">
-                        <p>Some of my favorites pieces from previous projects.</p>
-                        <p>Check out my best original music here:</p>
-                    </div>
-                </div>
-                <div className="listen-scroll-indicator" onClick={() => document.querySelector('.listen-grid')?.scrollIntoView({ behavior: 'smooth' })}>
-                    <p>Listen to My Originals</p>
-                    <div className="arrow-down">↓</div>
                 </div>
             </section>
 

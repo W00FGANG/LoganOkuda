@@ -10,6 +10,7 @@ import SpidermanPoster from '../assets/SpidermanNewDay.png';
 import OakStreetPoster from '../assets/EndOfOakStreet.png';
 import ZootopiaPoster from '../assets/Zootopia2.png';
 import Fantastic4Poster from '../assets/Fantastic4FirstSteps.png';
+import VisionQuest from '../assets/VisionQuest.png'
 
 export interface ProjectData {
     id: number;
@@ -21,11 +22,22 @@ export interface ProjectData {
     albumEmbedUrl?: string;
     imdbUrl?: string;
     trailerUrl?: string;
+    award?: string;
+    role?: string;
 }
 
 export const compositionProjects: ProjectData[] = [
     {
         id: 1,
+        title: 'Vision Quest',
+        alt: 'Vision Quest',
+        src: VisionQuest,
+        description: 'Series Premire Coming Soon October 14th, 2026 by Marvel Studios & Television. Features additional music by Logyn Okuda.',
+        imdbUrl: 'https://www.imdb.com/title/tt23112594/',
+        role: 'Additional Music By',
+    },
+    {
+        id: 2,
         title: 'Clara All The Way',
         alt: 'Clara All The Way',
         src: ClaraPoster,
@@ -35,16 +47,17 @@ export const compositionProjects: ProjectData[] = [
         trailerUrl: 'https://www.youtube.com/embed/b2zKKCkBXr4?si=jAzAhJxgen_lE6yV'
     },
     {
-        id: 2,
+        id: 3,
         title: 'East Did Meet West',
         alt: 'East Did Meet West',
         src: EastWestPoster,
-        description: 'Released 2025. A 15 minute short film inspired by the 1930s court case Roldan vs. Los Angeles County.',
+        description: 'Released 2025. A 15-minute short film inspired by the 1930s court case Roldan vs. Los Angeles County. The film was an official selection at the American Pavilion Emerging Filmmaker Showcase at Cannes, and the score was honored with the 2026 Movie Music Award at the Garden State Film Festival.',
         imdbUrl: 'https://www.imdb.com/title/tt36746504/',
-        trailerUrl: 'https://www.youtube.com/embed/Cdpl-WJI2-s?si=NF9ZnZXmvfY6twKl'
+        trailerUrl: 'https://www.youtube.com/embed/Cdpl-WJI2-s?si=NF9ZnZXmvfY6twKl',
+        award: 'Movie Music Award - GSFF',
     },
     {
-        id: 3,
+        id: 4,
         title: 'What We Call Home',
         alt: 'What We Call Home',
         src: HomePoster,
@@ -52,7 +65,7 @@ export const compositionProjects: ProjectData[] = [
         albumEmbedUrl: 'https://embed.music.apple.com/us/album/what-we-call-home-original-documentary-soundtrack/6770711861'
     },
     {
-        id: 4,
+        id: 5,
         title: 'Valhalla Calls No Names',
         alt: 'Valhalla Calls No Names',
         src: VcnnPoster,
@@ -61,24 +74,25 @@ export const compositionProjects: ProjectData[] = [
         imdbUrl: 'https://www.imdb.com/it/title/tt43649963/?ref_=ttfc_ov_bk',
     },
     {
-        id: 5,
+        id: 6,
         title: 'Butterfly',
         alt: 'Butterfly',
         src: ButterflyPoster,
-        description: 'Released August 13th, 2025. Produced by: Amazon MGM Studios, 3AD, & Boom! Studios.',
+        description: 'Released August 13th, 2025. Produced by: Amazon MGM Studios, 3AD, & Boom! Studios. Features additional music by Logyn Okuda.',
         albumEmbedUrl: 'https://embed.music.apple.com/us/album/butterfly-prime-video-original-series-soundtrack/1831125115',
         imdbUrl: 'https://www.imdb.com/title/tt26672404/',
-        trailerUrl: 'https://www.youtube.com/embed/RBmyiyZba3s?si=XA3xgO4o_RnwSOVL'
+        trailerUrl: 'https://www.youtube.com/embed/RBmyiyZba3s?si=XA3xgO4o_RnwSOVL',
+        role: 'Additional Music By',
     },
     {
-        id: 6,
+        id: 7,
         title: 'Mirage',
         alt: 'Mirage',
         src: MiragePoster,
         description: 'Short Animated film released in 2025 at Dodge College of Film and Media Arts.',
     },
     {
-        id: 7,
+        id: 8,
         title: 'Salvador',
         alt: 'Salvador',
         src: SalvadorPoster,
@@ -90,49 +104,59 @@ export const compositionProjects: ProjectData[] = [
 export const orchestrationProjects: ProjectData[] = [
      {
         id: 11,
+        title: 'Vision Quest',
+        alt: 'Vision Quest',
+        src: VisionQuest,
+        description: 'Series Premire Coming Soon October 14th, 2026 by Marvel Studios & Television. Features additional music by Logyn Okuda.',
+        imdbUrl: 'https://www.imdb.com/title/tt23112594/',
+        role: 'Additional Music By',
+    },
+     {
+        id: 12,
         title: 'End of Oak Street',
         alt: 'End of Oak Street',
         src: OakStreetPoster,
-        description: 'Released August 14th, 2026. Produced by: Bad Robot, Good Fear Content, & Jackson Pictures',
+        description: 'Released August 14th, 2026. Produced by: Bad Robot, Good Fear Content, & Jackson Pictures.',
         imdbUrl: 'https://www.imdb.com/title/tt27165187/',
         trailerUrl: 'https://www.youtube.com/embed/3oB9AxspVow?si=ct-K7EclY1DMuBVD'
     },
     {
-        id: 12,
+        id: 13,
         title: 'Spiderman New Day',
         alt: 'Spiderman New Day',
         src: SpidermanPoster,
-        description: 'Released July 31st, 2026. Produced by Columbia Pictures, Marvel Studios, and Pascal Pictures',
+        description: 'Released July 31st, 2026. Produced by Columbia Pictures, Marvel Studios, and Pascal Pictures.',
         albumEmbedUrl: 'https://embed.music.apple.com/us/album/suite-new-day-from-spider-man-brand-new-day-soundtrack/6790445715',
         imdbUrl: 'https://www.imdb.com/title/tt22084616/',
         trailerUrl: 'https://www.youtube.com/embed/P3uI5sLosKU?si=wJbqoEFCooGp9_3H'
     },
     {
-        id: 13,
+        id: 14,
         title: 'Zootopia 2',
         alt: 'Zootopia 2',
         src: ZootopiaPoster,
-        description: 'Released November 26th, 2025. Produced by: Walt Disney Pictures & Animation Studios',
+        description: 'Released November 26th, 2025. Produced by: Walt Disney Pictures & Animation Studios.',
         albumEmbedUrl: 'https://embed.music.apple.com/us/album/zootopia-2-original-motion-picture-soundtrack/1842202783',
         imdbUrl: 'https://www.imdb.com/title/tt26443597/',
         trailerUrl: 'https://www.youtube.com/embed/BjkIOU5PhyQ?si=A87De_8HN-hzcoPh'
     },
     {
-        id: 14,
+        id: 15,
         title: 'Butterfly',
         alt: 'Butterfly',
         src: ButterflyPoster,
-        description: 'Released August 13th, 2025. Produced by: Amazon MGM Studios, 3AD, & Boom! Studios.',
+        description: 'Released August 13th, 2025. Produced by: Amazon MGM Studios, 3AD, & Boom! Studios. Features additional music by Logyn Okuda.',
         albumEmbedUrl: 'https://embed.music.apple.com/us/album/butterfly-prime-video-original-series-soundtrack/1831125115',
         imdbUrl: 'https://www.imdb.com/title/tt26672404/',
-        trailerUrl: 'https://www.youtube.com/embed/RBmyiyZba3s?si=XA3xgO4o_RnwSOVL'
+        trailerUrl: 'https://www.youtube.com/embed/RBmyiyZba3s?si=XA3xgO4o_RnwSOVL',
+        role: 'Additional Music By'
     },
     {
-        id: 15,
+        id: 16,
         title: 'Fantastic 4 First Steps',
         alt: 'Fantastic 4 First Steps',
         src: Fantastic4Poster,
-        description: 'Released July 25th, 2025 Produced by: Pinewood Studios, New Zealand Film Comission, & Marvel Studios',
+        description: 'Released July 25th, 2025 Produced by: Pinewood Studios, New Zealand Film Comission, & Marvel Studios.',
         albumEmbedUrl: 'https://embed.music.apple.com/us/album/the-fantastic-four-first-steps-original-motion/1826653923',
         imdbUrl: 'https://www.imdb.com/title/tt10676052/',
         trailerUrl: 'https://www.youtube.com/embed/18QQWa5MEcs?si=xoFekykUJauG6WnM'
