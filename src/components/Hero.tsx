@@ -1,5 +1,5 @@
 import './Hero.css';
-import landingPageImg from '../assets/LandingPicture.png';
+import landingPageImg from '../assets/LogynComposer.png';
 
 export default function Hero() {
     return (

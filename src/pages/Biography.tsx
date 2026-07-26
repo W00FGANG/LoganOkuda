@@ -14,10 +14,6 @@ export default function Biography() {
             <section className="biography-banner" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("${BannerImage}")` }}>
                 <div className="biography-banner-content">
                     <h1 className="biography-banner-title">BIOGRAPHY</h1>
-                    <button 
-                        className="biography-banner-btn"
-                        onClick={() => document.querySelector('.biography-section')?.scrollIntoView({ behavior: 'smooth' })}
-                    >LEARN MORE</button>
                 </div>
             </section>
 

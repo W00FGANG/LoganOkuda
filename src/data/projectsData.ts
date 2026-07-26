@@ -5,6 +5,7 @@ import VcnnPoster from '../assets/ValhallaCallsNoNames.png';
 import ButterflyPoster from '../assets/Butterfly.png';
 import MiragePoster from '../assets/Mirage.png';
 import SalvadorPoster from '../assets/Salvador.png';
+import ChasePoster from '../assets/ChasePoster.png';
 
 import SpidermanPoster from '../assets/SpidermanNewDay.png';
 import OakStreetPoster from '../assets/EndOfOakStreet.png';
@@ -22,6 +23,7 @@ export interface ProjectData {
     albumEmbedUrl?: string;
     imdbUrl?: string;
     trailerUrl?: string;
+    shortFilmUrl?: string;
     award?: string;
     role?: string;
 }
@@ -98,6 +100,14 @@ export const compositionProjects: ProjectData[] = [
         src: SalvadorPoster,
         description: 'Released by: Henry Joe Productions October 17th, 2025.',
         imdbUrl: 'https://www.imdb.com/title/tt38494983/',
+    },
+    {
+        id: 9,
+        title: 'Chase',
+        alt: 'Chase',
+        src: ChasePoster,
+        description: 'Short Animated Film released November 2023 at Dodge College of Film and Media Arts Directed by Audrey James.',
+        shortFilmUrl: 'https://www.youtube.com/embed/KuYQBoAxZ2E?si=OrxlIL0gXEhOK5HF',
     },
 ];
 
