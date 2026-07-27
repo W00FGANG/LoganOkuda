@@ -55,6 +55,7 @@ export const compositionProjects: ProjectData[] = [
         src: EastWestPoster,
         description: 'Released 2025. A 15-minute short film inspired by the 1930s court case Roldan vs. Los Angeles County. The film was an official selection at the American Pavilion Emerging Filmmaker Showcase at Cannes, and the score was honored with the 2026 Movie Music Award at the Garden State Film Festival.',
         imdbUrl: 'https://www.imdb.com/title/tt36746504/',
+        albumEmbedUrl: 'https://embed.music.apple.com/us/album/east-did-meet-west-original-motion-picture-soundtrack/6786490665',
         trailerUrl: 'https://www.youtube.com/embed/Cdpl-WJI2-s?si=NF9ZnZXmvfY6twKl',
         award: 'Movie Music Award - GSFF',
     },
