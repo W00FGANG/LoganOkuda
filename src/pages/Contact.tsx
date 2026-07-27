@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Contact.css';
 
 import imgCollageLogan from '../assets/CollageLogynContact.png';
@@ -10,10 +10,63 @@ import imgBrandsYoutube from '../assets/youtube.png';
 import imgAppleMusic from '../assets/apple_music.png';
 import imgIMDb from '../assets/IMDbContact.png';
 
+interface ContactForm {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+}
+
 export default function Contact() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const [formData, setFormData] = useState<ContactForm>({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus('sending');
+
+        try {
+            const response = await fetch("/api/send-contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                console.log("Message sent!");
+                setStatus('success');
+                setFormData({ name: '', email: '', subject: '', message: '' });
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            console.error("Error sending message:", error);
+            setStatus('error');
+        }
+    };
 
     return (
         <main className="contact-page">
@@ -26,20 +79,60 @@ export default function Contact() {
                     <p className="contact-subtitle">
                         Have a project in mind? Contact me here to get started.
                     </p>
-                    <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                    <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <input type="text" placeholder="Name (required)" required />
+                            <input 
+                                type="text" 
+                                name="name"
+                                placeholder="Name (required)" 
+                                value={formData.name}
+                                onChange={handleChange}
+                                required 
+                            />
                         </div>
                         <div className="form-group">
-                            <input type="email" placeholder="Email (required)" required />
+                            <input 
+                                type="email" 
+                                name="email"
+                                placeholder="Email (required)" 
+                                value={formData.email}
+                                onChange={handleChange}
+                                required 
+                            />
                         </div>
                         <div className="form-group">
-                            <input type="text" placeholder="Subject Line (required)" required />
+                            <input 
+                                type="text" 
+                                name="subject"
+                                placeholder="Subject Line (required)" 
+                                value={formData.subject}
+                                onChange={handleChange}
+                                required 
+                            />
                         </div>
                         <div className="form-group">
-                            <textarea placeholder="Message (required)" rows={4} required></textarea>
+                            <textarea 
+                                name="message"
+                                placeholder="Message (required)" 
+                                rows={4} 
+                                value={formData.message}
+                                onChange={handleChange}
+                                required
+                            ></textarea>
                         </div>
-                        <button type="submit" className="submit-btn">Submit</button>
+                        <button type="submit" className="submit-btn" disabled={status === 'sending'}>
+                            {status === 'sending' ? 'Sending...' : 'Submit'}
+                        </button>
+                        {status === 'success' && (
+                            <p className="form-status success">
+                                Thank you! Your message has been sent successfully.
+                            </p>
+                        )}
+                        {status === 'error' && (
+                            <p className="form-status error">
+                                Something went wrong. Please try again or email directly.
+                            </p>
+                        )}
                     </form>
                 </div>
                 <div className="contact-right">
