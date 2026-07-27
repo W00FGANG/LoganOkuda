@@ -5,6 +5,7 @@ import VcnnPoster from '../assets/ValhallaCallsNoNames.png';
 import ButterflyPoster from '../assets/Butterfly.png';
 import MiragePoster from '../assets/Mirage.png';
 import SalvadorPoster from '../assets/Salvador.png';
+import ChasePoster from '../assets/ChasePoster.png';
 
 import SpidermanPoster from '../assets/SpidermanNewDay.png';
 import OakStreetPoster from '../assets/EndOfOakStreet.png';
@@ -22,6 +23,7 @@ export interface ProjectData {
     albumEmbedUrl?: string;
     imdbUrl?: string;
     trailerUrl?: string;
+    shortFilmUrl?: string;
     award?: string;
     role?: string;
 }
@@ -53,6 +55,7 @@ export const compositionProjects: ProjectData[] = [
         src: EastWestPoster,
         description: 'Released 2025. A 15-minute short film inspired by the 1930s court case Roldan vs. Los Angeles County. The film was an official selection at the American Pavilion Emerging Filmmaker Showcase at Cannes, and the score was honored with the 2026 Movie Music Award at the Garden State Film Festival.',
         imdbUrl: 'https://www.imdb.com/title/tt36746504/',
+        albumEmbedUrl: 'https://embed.music.apple.com/us/album/east-did-meet-west-original-motion-picture-soundtrack/6786490665',
         trailerUrl: 'https://www.youtube.com/embed/Cdpl-WJI2-s?si=NF9ZnZXmvfY6twKl',
         award: 'Movie Music Award - GSFF',
     },
@@ -98,6 +101,14 @@ export const compositionProjects: ProjectData[] = [
         src: SalvadorPoster,
         description: 'Released by: Henry Joe Productions October 17th, 2025.',
         imdbUrl: 'https://www.imdb.com/title/tt38494983/',
+    },
+    {
+        id: 9,
+        title: 'Chase',
+        alt: 'Chase',
+        src: ChasePoster,
+        description: 'Short Animated Film released November 2023 at Dodge College of Film and Media Arts Directed by Audrey James.',
+        shortFilmUrl: 'https://www.youtube.com/embed/KuYQBoAxZ2E?si=OrxlIL0gXEhOK5HF',
     },
 ];
 

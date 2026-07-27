@@ -158,6 +158,26 @@ export default function Credits() {
                                 </div>
                             </div>
 
+                            {/* Short Film Section */}
+                            {selectedProject.shortFilmUrl && (
+                                <>
+                                    <div className="section-banner trailer-banner">
+                                        <div className="banner-line left-line"></div>
+                                        <h1 className="banner-title">SHORT FILM</h1>
+                                        <div className="banner-line right-line"></div>
+                                    </div>
+                                    
+                                    <div className="project-trailer-container">
+                                        <InteractiveIframe 
+                                            className="project-trailer-video" 
+                                            src={selectedProject.shortFilmUrl} 
+                                            title="Short Film" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                        />
+                                    </div>
+                                </>
+                            )}
+
                             {/* Trailer Section */}
                             {selectedProject.trailerUrl && (
                                 <>
