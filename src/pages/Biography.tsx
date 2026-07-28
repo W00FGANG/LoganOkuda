@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import './Biography.css';
-import BWLogynBio from '../assets/BWLogynBio.png';
-import BannerImage from '../assets/BannerImage.png';
-import ClassicalPacific from '../assets/ClassicalPacific.png';
+import BWLogynBio from '../assets/BWLogynBio.webp';
+import BannerImage from '../assets/BannerImage.webp';
+import ClassicalPacific from '../assets/ClassicalPacific.webp';
 
 export default function Biography() {
     useEffect(() => {

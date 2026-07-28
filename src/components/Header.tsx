@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Header.css';
-import Ellipse1 from '../assets/Ellipse 1.png';
+import Ellipse1 from '../assets/Ellipse 1.webp';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);

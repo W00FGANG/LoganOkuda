@@ -1,17 +1,19 @@
-import ClaraPoster from '../assets/ClaraAllTheWay.png';
-import EastWestPoster from '../assets/EastMeetsWest.png';
-import HomePoster from '../assets/WhatWeCallHome.png';
-import VcnnPoster from '../assets/ValhallaCallsNoNames.png';
-import ButterflyPoster from '../assets/Butterfly.png';
-import MiragePoster from '../assets/Mirage.png';
-import SalvadorPoster from '../assets/Salvador.png';
-import ChasePoster from '../assets/ChasePoster.png';
+import ClaraPoster from '../assets/ClaraAllTheWay.webp';
+import EastWestPoster from '../assets/EastMeetsWest.webp';
+import HomePoster from '../assets/WhatWeCallHome.webp';
+import VcnnPoster from '../assets/ValhallaCallsNoNames.webp';
+import ButterflyPoster from '../assets/Butterfly.webp';
+import MiragePoster from '../assets/Mirage.webp';
+import SalvadorPoster from '../assets/Salvador.webp';
+import ChasePoster from '../assets/ChasePoster.webp';
 
-import SpidermanPoster from '../assets/SpidermanNewDay.png';
-import OakStreetPoster from '../assets/EndOfOakStreet.png';
-import ZootopiaPoster from '../assets/Zootopia2.png';
-import Fantastic4Poster from '../assets/Fantastic4FirstSteps.png';
-import VisionQuest from '../assets/VisionQuest.png'
+import SpidermanPoster from '../assets/SpidermanNewDay.webp';
+import OakStreetPoster from '../assets/EndOfOakStreet.webp';
+import ZootopiaPoster from '../assets/Zootopia2.webp';
+import Fantastic4Poster from '../assets/Fantastic4FirstSteps.webp';
+import VisionQuest from '../assets/VisionQuest.webp'
+import GenesisPoster from '../assets/GenesisPoster.webp';
+import UmbraPoster from '../assets/ThroughTheUmbraPoster.webp';
 
 export interface ProjectData {
     id: number;
@@ -50,6 +52,14 @@ export const compositionProjects: ProjectData[] = [
     },
     {
         id: 3,
+        title: 'Through The Umbra',
+        alt: 'Through The Umbra',
+        src: UmbraPoster,
+        description: 'Released April 20th, 2026, Directed by Rowdy Stephens.',
+        imdbUrl: 'https://www.imdb.com/title/tt43069977/?ref_=nm_flmg_job_2_accord_2_cdt_c_2',
+    },
+    {
+        id: 4,
         title: 'East Did Meet West',
         alt: 'East Did Meet West',
         src: EastWestPoster,
@@ -60,7 +70,7 @@ export const compositionProjects: ProjectData[] = [
         award: 'Movie Music Award - GSFF',
     },
     {
-        id: 4,
+        id: 5,
         title: 'What We Call Home',
         alt: 'What We Call Home',
         src: HomePoster,
@@ -68,7 +78,7 @@ export const compositionProjects: ProjectData[] = [
         albumEmbedUrl: 'https://embed.music.apple.com/us/album/what-we-call-home-original-documentary-soundtrack/6770711861'
     },
     {
-        id: 5,
+        id: 6,
         title: 'Valhalla Calls No Names',
         alt: 'Valhalla Calls No Names',
         src: VcnnPoster,
@@ -77,7 +87,15 @@ export const compositionProjects: ProjectData[] = [
         imdbUrl: 'https://www.imdb.com/it/title/tt43649963/?ref_=ttfc_ov_bk',
     },
     {
-        id: 6,
+        id: 7,
+        title: 'Genesis',
+        alt: 'Genesis',
+        src: GenesisPoster,
+        description: 'Released in May 2025. Directed by Rowdy Stephens.',
+        imdbUrl: 'https://www.imdb.com/title/tt38839118/?ref_=nm_flmg_job_1_accord_2_cdt_t_5',
+    },
+    {
+        id: 8,
         title: 'Butterfly',
         alt: 'Butterfly',
         src: ButterflyPoster,
@@ -88,14 +106,14 @@ export const compositionProjects: ProjectData[] = [
         role: 'Additional Music By',
     },
     {
-        id: 7,
+        id: 9,
         title: 'Mirage',
         alt: 'Mirage',
         src: MiragePoster,
         description: 'Short Animated film released in 2025 at Dodge College of Film and Media Arts.',
     },
     {
-        id: 8,
+        id: 10,
         title: 'Salvador',
         alt: 'Salvador',
         src: SalvadorPoster,
@@ -103,7 +121,7 @@ export const compositionProjects: ProjectData[] = [
         imdbUrl: 'https://www.imdb.com/title/tt38494983/',
     },
     {
-        id: 9,
+        id: 11,
         title: 'Chase',
         alt: 'Chase',
         src: ChasePoster,
@@ -114,7 +132,7 @@ export const compositionProjects: ProjectData[] = [
 
 export const orchestrationProjects: ProjectData[] = [
      {
-        id: 11,
+        id: 12,
         title: 'Vision Quest',
         alt: 'Vision Quest',
         src: VisionQuest,
@@ -123,7 +141,7 @@ export const orchestrationProjects: ProjectData[] = [
         role: 'Additional Music By',
     },
      {
-        id: 12,
+        id: 13,
         title: 'End of Oak Street',
         alt: 'End of Oak Street',
         src: OakStreetPoster,
@@ -132,7 +150,7 @@ export const orchestrationProjects: ProjectData[] = [
         trailerUrl: 'https://www.youtube.com/embed/3oB9AxspVow?si=ct-K7EclY1DMuBVD'
     },
     {
-        id: 13,
+        id: 14,
         title: 'Spiderman New Day',
         alt: 'Spiderman New Day',
         src: SpidermanPoster,
@@ -142,7 +160,7 @@ export const orchestrationProjects: ProjectData[] = [
         trailerUrl: 'https://www.youtube.com/embed/P3uI5sLosKU?si=wJbqoEFCooGp9_3H'
     },
     {
-        id: 14,
+        id: 15,
         title: 'Zootopia 2',
         alt: 'Zootopia 2',
         src: ZootopiaPoster,
@@ -152,7 +170,7 @@ export const orchestrationProjects: ProjectData[] = [
         trailerUrl: 'https://www.youtube.com/embed/BjkIOU5PhyQ?si=A87De_8HN-hzcoPh'
     },
     {
-        id: 15,
+        id: 16,
         title: 'Butterfly',
         alt: 'Butterfly',
         src: ButterflyPoster,
@@ -163,7 +181,7 @@ export const orchestrationProjects: ProjectData[] = [
         role: 'Additional Music By'
     },
     {
-        id: 16,
+        id: 17,
         title: 'Fantastic 4 First Steps',
         alt: 'Fantastic 4 First Steps',
         src: Fantastic4Poster,

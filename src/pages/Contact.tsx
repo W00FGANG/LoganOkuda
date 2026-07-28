@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import './Contact.css';
 
-import imgCollageLogan from '../assets/CollageLogynContact.png';
-import imgEmailIcon from '../assets/EmailIcon.png';
-import imgPhoneIcon from '../assets/PhoneIcon.png';
-import imgBrandsInstagram from '../assets/instagram.png';
-import imgBrandsLinkedin from '../assets/linkedin.png';
-import imgBrandsYoutube from '../assets/youtube.png';
-import imgAppleMusic from '../assets/apple_music.png';
-import imgIMDb from '../assets/IMDbContact.png';
+import imgCollageLogan from '../assets/CollageLogynContact.webp';
+import imgEmailIcon from '../assets/EmailIcon.webp';
+import imgPhoneIcon from '../assets/PhoneIcon.webp';
+import imgBrandsInstagram from '../assets/instagram.webp';
+import imgBrandsLinkedin from '../assets/linkedin.webp';
+import imgBrandsYoutube from '../assets/youtube.webp';
+import imgAppleMusic from '../assets/apple_music.webp';
+import imgIMDb from '../assets/IMDbContact.webp';
 
 interface ContactForm {
     name: string;
@@ -148,11 +148,11 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className="contact-social-icons">
-                        <a href="https://www.instagram.com/the_logokuda/" target="_blank" rel="noopener noreferrer"><img src={imgBrandsInstagram} alt="Instagram" /></a>
-                        <a href="https://www.linkedin.com/in/logyn-okuda-ab9322243/" target="_blank" rel="noopener noreferrer"><img src={imgBrandsLinkedin} alt="LinkedIn" /></a>
-                        <a href="https://www.youtube.com/@logpog4660" target="_blank" rel="noopener noreferrer"><img src={imgBrandsYoutube} alt="YouTube" /></a>
-                        <a href="https://music.apple.com/us/artist/logyn-okuda/1713800649" target="_blank" rel="noopener noreferrer"><img src={imgAppleMusic} alt="Apple Music" /></a>
-                        <a href="https://www.imdb.com/name/nm14950716/?ref_=ext_shr_sms" target="_blank" rel="noopener noreferrer"><img src={imgIMDb} alt="IMDb" /></a>
+                        <a href="https://www.instagram.com/the_logokuda/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src={imgBrandsInstagram} alt="Instagram" /></a>
+                        <a href="https://www.linkedin.com/in/logyn-okuda-ab9322243/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src={imgBrandsLinkedin} alt="LinkedIn" /></a>
+                        <a href="https://www.youtube.com/@logpog4660" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src={imgBrandsYoutube} alt="YouTube" /></a>
+                        <a href="https://music.apple.com/us/artist/logyn-okuda/1713800649" target="_blank" rel="noopener noreferrer" aria-label="Apple Music"><img src={imgAppleMusic} alt="Apple Music" /></a>
+                        <a href="https://www.imdb.com/name/nm14950716/?ref_=ext_shr_sms" target="_blank" rel="noopener noreferrer" aria-label="IMDb"><img src={imgIMDb} alt="IMDb" /></a>
                     </div>
                 </div>
             </div>
