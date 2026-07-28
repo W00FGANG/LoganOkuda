@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Credits.css';
 import { compositionProjects, orchestrationProjects, ProjectData } from '../data/projectsData';
-import IMDbIcon from '../assets/IMDBLogo.png';
+import IMDbIcon from '../assets/IMDBLogo.webp';
 
 function InteractiveIframe({ src, className, style, allow, sandbox, title, height }: any) {
     const [isInteractive, setIsInteractive] = useState(false);
@@ -137,7 +137,7 @@ export default function Credits() {
                                             <div className="project-detail-subtitle-wrapper" style={{ flexDirection: 'row', alignItems: 'center', gap: '20px', justifyContent: 'flex-start' }}>
                                                 <p className="project-detail-subtitle">Links</p>
                                                 {selectedProject.imdbUrl && (
-                                                    <a href={selectedProject.imdbUrl} target="_blank" rel="noreferrer" className="imdb-link" style={{ height: '40px', display: 'flex', alignItems: 'center' }}>
+                                                    <a href={selectedProject.imdbUrl} target="_blank" rel="noreferrer" aria-label="IMDb" className="imdb-link" style={{ height: '40px', display: 'flex', alignItems: 'center' }}>
                                                         <img src={IMDbIcon} alt="IMDb" className="imdb-icon" style={{ height: '100%', width: 'auto' }} />
                                                     </a>
                                                 )}

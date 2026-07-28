@@ -1,9 +1,9 @@
 import './Footer.css';
-import InstagramIcon from '../assets/instagram.png';
-import LinkedInIcon from '../assets/linkedin.png';
-import YouTubeIcon from '../assets/youtube.png';
-import AppleMusicIcon from '../assets/apple_music.png';
-import IMDbIcon from '../assets/IMDbContact.png';
+import InstagramIcon from '../assets/instagram.webp';
+import LinkedInIcon from '../assets/linkedin.webp';
+import YouTubeIcon from '../assets/youtube.webp';
+import AppleMusicIcon from '../assets/apple_music.webp';
+import IMDbIcon from '../assets/IMDbContact.webp';
 
 export default function Footer() {
     return (

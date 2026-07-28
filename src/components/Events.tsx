@@ -1,7 +1,7 @@
 import './Events.css';
-import GustavoImg from '../assets/Gustavo.png';
-import MultiverseImg from '../assets/Multiverse.png';
-import RightArrow from '../assets/Right-arrow.svg.png';
+import GustavoImg from '../assets/Gustavo.webp';
+import MultiverseImg from '../assets/Multiverse.webp';
+import RightArrow from '../assets/Right-arrow.svg.webp';
 
 export default function Events() {
     return (

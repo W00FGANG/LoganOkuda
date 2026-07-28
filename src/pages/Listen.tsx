@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Listen.css';
-import BannerImage from '../assets/LogynThinking.jpg';
+import BannerImage from '../assets/LogynThinking.webp';
 
 function ListenItemEmbed({ title, src }: { title: string; src: string }) {
     const [isInteractive, setIsInteractive] = useState(false);

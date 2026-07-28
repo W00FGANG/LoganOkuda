@@ -1,17 +1,17 @@
-import ClaraPoster from '../assets/ClaraAllTheWay.png';
-import EastWestPoster from '../assets/EastMeetsWest.png';
-import HomePoster from '../assets/WhatWeCallHome.png';
-import VcnnPoster from '../assets/ValhallaCallsNoNames.png';
-import ButterflyPoster from '../assets/Butterfly.png';
-import MiragePoster from '../assets/Mirage.png';
-import SalvadorPoster from '../assets/Salvador.png';
-import ChasePoster from '../assets/ChasePoster.png';
+import ClaraPoster from '../assets/ClaraAllTheWay.webp';
+import EastWestPoster from '../assets/EastMeetsWest.webp';
+import HomePoster from '../assets/WhatWeCallHome.webp';
+import VcnnPoster from '../assets/ValhallaCallsNoNames.webp';
+import ButterflyPoster from '../assets/Butterfly.webp';
+import MiragePoster from '../assets/Mirage.webp';
+import SalvadorPoster from '../assets/Salvador.webp';
+import ChasePoster from '../assets/ChasePoster.webp';
 
-import SpidermanPoster from '../assets/SpidermanNewDay.png';
-import OakStreetPoster from '../assets/EndOfOakStreet.png';
-import ZootopiaPoster from '../assets/Zootopia2.png';
-import Fantastic4Poster from '../assets/Fantastic4FirstSteps.png';
-import VisionQuest from '../assets/VisionQuest.png'
+import SpidermanPoster from '../assets/SpidermanNewDay.webp';
+import OakStreetPoster from '../assets/EndOfOakStreet.webp';
+import ZootopiaPoster from '../assets/Zootopia2.webp';
+import Fantastic4Poster from '../assets/Fantastic4FirstSteps.webp';
+import VisionQuest from '../assets/VisionQuest.webp'
 
 export interface ProjectData {
     id: number;
