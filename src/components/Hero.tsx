@@ -1,3 +1,4 @@
+import type { ImgHTMLAttributes } from 'react';
 import './Hero.css';
 
 export default function Hero() {
@@ -7,7 +8,12 @@ export default function Hero() {
                 <picture>
                     <source media="(max-width: 768px)" srcSet="/hero-bg-mobile.webp" />
                     <source media="(min-width: 769px)" srcSet="/hero-bg-desktop.webp" />
-                    <img src="/hero-bg-desktop.webp" alt="Logyn Okuda Composer Background" className="hero-img" fetchPriority="high" />
+                    <img
+                        src="/hero-bg-desktop.webp"
+                        alt="Logyn Okuda Composer Background"
+                        className="hero-img"
+                        {...({ fetchpriority: 'high' } as ImgHTMLAttributes<HTMLImageElement>)}
+                    />
                 </picture>
             </div>
             <div className="hero-content">

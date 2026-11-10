@@ -2,9 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import './Projects.css';
 import ComposerReel from '../assets/ComposerReel.mp4';
 import OrchestraReel from '../assets/OrchestraReel.mp4';
+import { featuredVideos, FeaturedVideo } from '../data/projectsData';
+import VideoModal, { LiteYouTubePreview } from './VideoModal';
 
 export default function Projects() {
     const [shouldLoadVideos, setShouldLoadVideos] = useState(false);
+    const [activeVideoModal, setActiveVideoModal] = useState<FeaturedVideo | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -37,6 +40,33 @@ export default function Projects() {
                 <h2 className="banner-title">RECENT PROJECTS</h2>
                 <div className="banner-line right-line"></div>
             </div>
+
+            <div className="recent-videos-grid">
+                {featuredVideos.map((video) => (
+                    <div
+                        key={video.id}
+                        className="recent-video-card animate-on-scroll"
+                        onClick={() => setActiveVideoModal(video)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                setActiveVideoModal(video);
+                            }
+                        }}
+                    >
+                        <div className="recent-video-header">
+                            <h3 className="recent-video-title">{video.title}</h3>
+                            <span className="recent-video-expand-hint">Click to Preview</span>
+                        </div>
+                        <div className="recent-video-embed">
+                            <LiteYouTubePreview embedUrl={video.embedUrl} title={video.title} />
+                        </div>
+                    </div>
+                ))}
+            </div>
+
             <div className="projects-grid">
                 <div className="project-card animate-on-scroll" onClick={() => handleNavigate('composition')} style={{ cursor: 'pointer' }}>
                     <video 
@@ -69,6 +99,14 @@ export default function Projects() {
                     </div>
                 </div>
             </div>
+
+            {activeVideoModal && (
+                <VideoModal
+                    title={activeVideoModal.title}
+                    embedUrl={activeVideoModal.embedUrl}
+                    onClose={() => setActiveVideoModal(null)}
+                />
+            )}
         </section>
     );
 }

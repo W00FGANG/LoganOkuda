@@ -1,9 +1,21 @@
-import { useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import './Credits.css';
+import '../components/Projects.css';
 import { compositionProjects, orchestrationProjects, ProjectData } from '../data/projectsData';
 import IMDbIcon from '../assets/IMDBLogo.webp';
+import VideoModal, { LiteYouTubePreview } from '../components/VideoModal';
 
-function InteractiveIframe({ src, className, style, allow, sandbox, title, height }: any) {
+interface InteractiveIframeProps {
+    src: string;
+    className?: string;
+    style?: CSSProperties;
+    allow?: string;
+    sandbox?: string;
+    title?: string;
+    height?: string | number;
+}
+
+function InteractiveIframe({ src, className, style, allow, sandbox, title, height }: InteractiveIframeProps) {
     const [isInteractive, setIsInteractive] = useState(false);
     return (
         <div 
@@ -37,11 +49,24 @@ export default function Credits() {
         }
         return 'orchestration';
     });
-    const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
+    const [selectedProject, setSelectedProject] = useState<ProjectData | null>(() => {
+        const savedProjectTitle = sessionStorage.getItem('creditsProjectTitle');
+        if (!savedProjectTitle) return null;
+        const savedTab = sessionStorage.getItem('creditsTab');
+        const pool = savedTab === 'composition' ? compositionProjects : orchestrationProjects;
+        return (
+            pool.find((p) => p.title === savedProjectTitle) ||
+            compositionProjects.find((p) => p.title === savedProjectTitle) ||
+            orchestrationProjects.find((p) => p.title === savedProjectTitle) ||
+            null
+        );
+    });
+    const [activeVideoModal, setActiveVideoModal] = useState<{ title: string; embedUrl: string } | null>(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         sessionStorage.removeItem('creditsTab');
+        sessionStorage.removeItem('creditsProjectTitle');
     }, []);
 
     // Scroll to top when a project is selected
@@ -167,13 +192,36 @@ export default function Credits() {
                                         <div className="banner-line right-line"></div>
                                     </div>
                                     
-                                    <div className="project-trailer-container">
-                                        <InteractiveIframe 
-                                            className="project-trailer-video" 
-                                            src={selectedProject.shortFilmUrl} 
-                                            title="Short Film" 
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                        />
+                                    <div
+                                        className="recent-video-card credit-trailer-card"
+                                        onClick={() =>
+                                            setActiveVideoModal({
+                                                title: `${selectedProject.title} | Short Film`,
+                                                embedUrl: selectedProject.shortFilmUrl!,
+                                            })
+                                        }
+                                        role="button"
+                                        tabIndex={0}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter' || e.key === ' ') {
+                                                e.preventDefault();
+                                                setActiveVideoModal({
+                                                    title: `${selectedProject.title} | Short Film`,
+                                                    embedUrl: selectedProject.shortFilmUrl!,
+                                                });
+                                            }
+                                        }}
+                                    >
+                                        <div className="recent-video-header">
+                                            <h3 className="recent-video-title">{selectedProject.title} | Short Film</h3>
+                                            <span className="recent-video-expand-hint">Click to Preview</span>
+                                        </div>
+                                        <div className="recent-video-embed">
+                                            <LiteYouTubePreview
+                                                embedUrl={selectedProject.shortFilmUrl}
+                                                title={`${selectedProject.title} Short Film`}
+                                            />
+                                        </div>
                                     </div>
                                 </>
                             )}
@@ -187,13 +235,36 @@ export default function Credits() {
                                         <div className="banner-line right-line"></div>
                                     </div>
                                     
-                                    <div className="project-trailer-container">
-                                        <InteractiveIframe 
-                                            className="project-trailer-video" 
-                                            src={selectedProject.trailerUrl} 
-                                            title="Trailer" 
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                        />
+                                    <div
+                                        className="recent-video-card credit-trailer-card"
+                                        onClick={() =>
+                                            setActiveVideoModal({
+                                                title: `${selectedProject.title} | Official Trailer`,
+                                                embedUrl: selectedProject.trailerUrl!,
+                                            })
+                                        }
+                                        role="button"
+                                        tabIndex={0}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter' || e.key === ' ') {
+                                                e.preventDefault();
+                                                setActiveVideoModal({
+                                                    title: `${selectedProject.title} | Official Trailer`,
+                                                    embedUrl: selectedProject.trailerUrl!,
+                                                });
+                                            }
+                                        }}
+                                    >
+                                        <div className="recent-video-header">
+                                            <h3 className="recent-video-title">{selectedProject.title} | Official Trailer</h3>
+                                            <span className="recent-video-expand-hint">Click to Preview</span>
+                                        </div>
+                                        <div className="recent-video-embed">
+                                            <LiteYouTubePreview
+                                                embedUrl={selectedProject.trailerUrl}
+                                                title={`${selectedProject.title} Trailer`}
+                                            />
+                                        </div>
                                     </div>
                                 </>
                             )}
@@ -201,6 +272,14 @@ export default function Credits() {
                     )}
                 </div>
             </div>
+
+            {activeVideoModal && (
+                <VideoModal
+                    title={activeVideoModal.title}
+                    embedUrl={activeVideoModal.embedUrl}
+                    onClose={() => setActiveVideoModal(null)}
+                />
+            )}
         </main>
     );
 }

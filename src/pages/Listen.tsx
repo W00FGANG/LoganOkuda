@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import './Listen.css';
+import '../components/Projects.css';
 import BannerImage from '../assets/LogynThinking.webp';
+import { featuredVideos, FeaturedVideo } from '../data/projectsData';
+import VideoModal, { LiteYouTubePreview } from '../components/VideoModal';
 
 function ListenItemEmbed({ title, src }: { title: string; src: string }) {
     const [isInteractive, setIsInteractive] = useState(false);
@@ -35,6 +38,8 @@ function ListenItemEmbed({ title, src }: { title: string; src: string }) {
 }
 
 export default function Listen() {
+    const [activeVideoModal, setActiveVideoModal] = useState<FeaturedVideo | null>(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -75,7 +80,47 @@ export default function Listen() {
                         src="https://play.reelcrafter.com/embed/7634001d-885a-43cd-bc62-958c9f21afc3" 
                     />
                 </div>
+
+                <div className="section-banner listen-videos-banner">
+                    <div className="banner-line left-line"></div>
+                    <h2 className="banner-title">SCORED TO PICTURE</h2>
+                    <div className="banner-line right-line"></div>
+                </div>
+
+                <div className="recent-videos-grid listen-videos-grid">
+                    {featuredVideos.map((video) => (
+                        <div
+                            key={video.id}
+                            className="recent-video-card"
+                            onClick={() => setActiveVideoModal(video)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    setActiveVideoModal(video);
+                                }
+                            }}
+                        >
+                            <div className="recent-video-header">
+                                <h3 className="recent-video-title">{video.title}</h3>
+                                <span className="recent-video-expand-hint">Click to Preview</span>
+                            </div>
+                            <div className="recent-video-embed">
+                                <LiteYouTubePreview embedUrl={video.embedUrl} title={video.title} />
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </section>
+
+            {activeVideoModal && (
+                <VideoModal
+                    title={activeVideoModal.title}
+                    embedUrl={activeVideoModal.embedUrl}
+                    onClose={() => setActiveVideoModal(null)}
+                />
+            )}
         </main>
     );
 }

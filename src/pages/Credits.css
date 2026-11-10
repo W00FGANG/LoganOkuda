@@ -79,6 +79,22 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
+.credit-trailer-card {
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+.credit-trailer-card .recent-video-title {
+    min-height: auto;
+}
+
+@media (max-width: 640px) {
+    .credit-trailer-card {
+        width: calc(100% - 32px);
+    }
+}
+
 .project-trailer-video {
     width: 100%;
     height: 100%;

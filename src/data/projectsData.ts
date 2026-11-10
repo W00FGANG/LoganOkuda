@@ -15,6 +15,25 @@ import VisionQuest from '../assets/VisionQuest.webp'
 import GenesisPoster from '../assets/GenesisPoster.webp';
 import UmbraPoster from '../assets/ThroughTheUmbraPoster.webp';
 
+export interface FeaturedVideo {
+    id: string;
+    title: string;
+    embedUrl: string;
+}
+
+export const featuredVideos: FeaturedVideo[] = [
+    {
+        id: 'hnL0cYcUL0w',
+        title: 'Dallas Cowboys | Season Opening Film (2026–2027)',
+        embedUrl: 'https://www.youtube.com/embed/hnL0cYcUL0w?si=qYA5R3cCe-PEeEib',
+    },
+    {
+        id: '4rligTobm5k',
+        title: 'Robert Greene | Documentary for The Laws of Human Nature Author',
+        embedUrl: 'https://www.youtube.com/embed/4rligTobm5k?si=zwbyq0GjGVBy3ywO',
+    },
+];
+
 export interface ProjectData {
     id: number;
     title: string;
@@ -38,6 +57,7 @@ export const compositionProjects: ProjectData[] = [
         src: VisionQuest,
         description: 'Series Premire Coming Soon October 14th, 2026 by Marvel Studios & Television. Features additional music by Logyn Okuda.',
         imdbUrl: 'https://www.imdb.com/title/tt23112594/',
+        trailerUrl: 'https://www.youtube.com/embed/sXKnmgmbkoE?si=85bDZrUmTqhtnEE7',
         role: 'Additional Music By',
     },
     {
@@ -138,6 +158,7 @@ export const orchestrationProjects: ProjectData[] = [
         src: VisionQuest,
         description: 'Series Premire Coming Soon October 14th, 2026 by Marvel Studios & Television. Features additional music by Logyn Okuda.',
         imdbUrl: 'https://www.imdb.com/title/tt23112594/',
+        trailerUrl: 'https://www.youtube.com/embed/sXKnmgmbkoE?si=85bDZrUmTqhtnEE7',
         role: 'Additional Music By',
     },
      {
