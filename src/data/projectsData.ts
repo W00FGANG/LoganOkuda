@@ -38,6 +38,7 @@ export const compositionProjects: ProjectData[] = [
         src: VisionQuest,
         description: 'Series Premire Coming Soon October 14th, 2026 by Marvel Studios & Television. Features additional music by Logyn Okuda.',
         imdbUrl: 'https://www.imdb.com/title/tt23112594/',
+        trailerUrl: 'https://www.youtube.com/embed/sXKnmgmbkoE?si=85bDZrUmTqhtnEE7',
         role: 'Additional Music By',
     },
     {
@@ -138,6 +139,7 @@ export const orchestrationProjects: ProjectData[] = [
         src: VisionQuest,
         description: 'Series Premire Coming Soon October 14th, 2026 by Marvel Studios & Television. Features additional music by Logyn Okuda.',
         imdbUrl: 'https://www.imdb.com/title/tt23112594/',
+        trailerUrl: 'https://www.youtube.com/embed/sXKnmgmbkoE?si=85bDZrUmTqhtnEE7',
         role: 'Additional Music By',
     },
      {
