@@ -8,12 +8,12 @@ interface VideoModalProps {
     onClose: () => void;
 }
 
-export function extractYouTubeId(embedUrl: string): string | null {
+function extractYouTubeId(embedUrl: string): string | null {
     const match = embedUrl.match(/\/embed\/([^?&/]+)/);
     return match ? match[1] : null;
 }
 
-export function toPrivacyEnhancedEmbedUrl(embedUrl: string): string {
+function toPrivacyEnhancedEmbedUrl(embedUrl: string): string {
     return embedUrl.replace('https://www.youtube.com/embed/', 'https://www.youtube-nocookie.com/embed/');
 }
 

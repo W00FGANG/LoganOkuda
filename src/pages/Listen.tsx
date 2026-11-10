@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './Listen.css';
 import '../components/Projects.css';
 import BannerImage from '../assets/LogynThinking.webp';
-import { featuredVideos, FeaturedVideo } from '../components/Projects';
+import { featuredVideos, FeaturedVideo } from '../data/projectsData';
 import VideoModal, { LiteYouTubePreview } from '../components/VideoModal';
 
 function ListenItemEmbed({ title, src }: { title: string; src: string }) {

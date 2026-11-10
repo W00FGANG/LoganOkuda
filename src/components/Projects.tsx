@@ -2,26 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import './Projects.css';
 import ComposerReel from '../assets/ComposerReel.mp4';
 import OrchestraReel from '../assets/OrchestraReel.mp4';
+import { featuredVideos, FeaturedVideo } from '../data/projectsData';
 import VideoModal, { LiteYouTubePreview } from './VideoModal';
-
-export interface FeaturedVideo {
-    id: string;
-    title: string;
-    embedUrl: string;
-}
-
-export const featuredVideos: FeaturedVideo[] = [
-    {
-        id: 'hnL0cYcUL0w',
-        title: 'Dallas Cowboys | Season Opening Film (2026–2027)',
-        embedUrl: 'https://www.youtube.com/embed/hnL0cYcUL0w?si=qYA5R3cCe-PEeEib',
-    },
-    {
-        id: '4rligTobm5k',
-        title: 'Robert Greene | Documentary for The Laws of Human Nature Author',
-        embedUrl: 'https://www.youtube.com/embed/4rligTobm5k?si=zwbyq0GjGVBy3ywO',
-    },
-];
 
 export default function Projects() {
     const [shouldLoadVideos, setShouldLoadVideos] = useState(false);

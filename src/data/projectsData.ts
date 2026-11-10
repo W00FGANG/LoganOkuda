@@ -15,6 +15,25 @@ import VisionQuest from '../assets/VisionQuest.webp'
 import GenesisPoster from '../assets/GenesisPoster.webp';
 import UmbraPoster from '../assets/ThroughTheUmbraPoster.webp';
 
+export interface FeaturedVideo {
+    id: string;
+    title: string;
+    embedUrl: string;
+}
+
+export const featuredVideos: FeaturedVideo[] = [
+    {
+        id: 'hnL0cYcUL0w',
+        title: 'Dallas Cowboys | Season Opening Film (2026–2027)',
+        embedUrl: 'https://www.youtube.com/embed/hnL0cYcUL0w?si=qYA5R3cCe-PEeEib',
+    },
+    {
+        id: '4rligTobm5k',
+        title: 'Robert Greene | Documentary for The Laws of Human Nature Author',
+        embedUrl: 'https://www.youtube.com/embed/4rligTobm5k?si=zwbyq0GjGVBy3ywO',
+    },
+];
+
 export interface ProjectData {
     id: number;
     title: string;

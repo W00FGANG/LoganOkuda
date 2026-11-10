@@ -1,11 +1,21 @@
-import { useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import './Credits.css';
 import '../components/Projects.css';
 import { compositionProjects, orchestrationProjects, ProjectData } from '../data/projectsData';
 import IMDbIcon from '../assets/IMDBLogo.webp';
 import VideoModal, { LiteYouTubePreview } from '../components/VideoModal';
 
-function InteractiveIframe({ src, className, style, allow, sandbox, title, height }: any) {
+interface InteractiveIframeProps {
+    src: string;
+    className?: string;
+    style?: CSSProperties;
+    allow?: string;
+    sandbox?: string;
+    title?: string;
+    height?: string | number;
+}
+
+function InteractiveIframe({ src, className, style, allow, sandbox, title, height }: InteractiveIframeProps) {
     const [isInteractive, setIsInteractive] = useState(false);
     return (
         <div 
