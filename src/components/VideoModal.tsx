@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import './VideoModal.css';
 
@@ -17,6 +17,24 @@ function toPrivacyEnhancedEmbedUrl(embedUrl: string): string {
     return embedUrl.replace('https://www.youtube.com/embed/', 'https://www.youtube-nocookie.com/embed/');
 }
 
+let preconnected = false;
+function warmYouTubeConnections() {
+    if (preconnected || typeof document === 'undefined') return;
+    preconnected = true;
+    const origins = [
+        'https://www.youtube-nocookie.com',
+        'https://www.google.com',
+        'https://i.ytimg.com',
+    ];
+    origins.forEach((href) => {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = href;
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+    });
+}
+
 export function LiteYouTubePreview({
     embedUrl,
     title,
@@ -26,20 +44,49 @@ export function LiteYouTubePreview({
     title: string;
     className?: string;
 }) {
+    const [isInView, setIsInView] = useState(false);
+    const [thumbLoaded, setThumbLoaded] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsInView(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: '300px 0px' }
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
     const videoId = extractYouTubeId(embedUrl);
     const thumbnailUrl = videoId
         ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
         : '';
 
     return (
-        <div className={`lite-yt-preview ${className}`.trim()}>
-            {thumbnailUrl && (
+        <div
+            ref={containerRef}
+            className={`lite-yt-preview ${className}`.trim()}
+            onMouseEnter={warmYouTubeConnections}
+            onTouchStart={warmYouTubeConnections}
+        >
+            {!thumbLoaded && <div className="lite-yt-skeleton" aria-hidden="true" />}
+            {isInView && thumbnailUrl && (
                 <img
                     src={thumbnailUrl}
                     alt={title}
-                    className="lite-yt-thumbnail"
+                    className={`lite-yt-thumbnail ${thumbLoaded ? 'is-loaded' : ''}`}
                     loading="lazy"
                     decoding="async"
+                    onLoad={() => setThumbLoaded(true)}
                 />
             )}
             <div className="lite-yt-play-btn" aria-hidden="true">
@@ -58,7 +105,11 @@ export function LiteYouTubePreview({
 }
 
 export default function VideoModal({ title, embedUrl, onClose }: VideoModalProps) {
+    const [iframeLoaded, setIframeLoaded] = useState(false);
+
     useEffect(() => {
+        warmYouTubeConnections();
+
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
                 onClose();
@@ -75,9 +126,8 @@ export default function VideoModal({ title, embedUrl, onClose }: VideoModalProps
     }, [onClose]);
 
     const privacyUrl = toPrivacyEnhancedEmbedUrl(embedUrl);
-    const autoplaySrc = privacyUrl.includes('?')
-        ? `${privacyUrl}&autoplay=1`
-        : `${privacyUrl}?autoplay=1`;
+    const separator = privacyUrl.includes('?') ? '&' : '?';
+    const autoplaySrc = `${privacyUrl}${separator}autoplay=1&rel=0&modestbranding=1&playsinline=1`;
 
     return createPortal(
         <div
@@ -103,6 +153,12 @@ export default function VideoModal({ title, embedUrl, onClose }: VideoModalProps
                     </button>
                 </div>
                 <div className="video-modal-player">
+                    {!iframeLoaded && (
+                        <div className="video-modal-loader" aria-label="Loading video player">
+                            <div className="video-modal-spinner" />
+                            <span>Loading video...</span>
+                        </div>
+                    )}
                     <iframe
                         width="100%"
                         height="100%"
@@ -112,6 +168,8 @@ export default function VideoModal({ title, embedUrl, onClose }: VideoModalProps
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerPolicy="strict-origin-when-cross-origin"
                         allowFullScreen
+                        onLoad={() => setIframeLoaded(true)}
+                        className={`video-modal-iframe ${iframeLoaded ? 'is-loaded' : ''}`}
                     ></iframe>
                 </div>
             </div>

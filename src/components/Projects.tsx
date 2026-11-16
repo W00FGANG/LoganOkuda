@@ -7,26 +7,56 @@ import VideoModal, { LiteYouTubePreview } from './VideoModal';
 
 export default function Projects() {
     const [shouldLoadVideos, setShouldLoadVideos] = useState(false);
+    const [isReelsVisible, setIsReelsVisible] = useState(false);
     const [activeVideoModal, setActiveVideoModal] = useState<FeaturedVideo | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
+    const reelsGridRef = useRef<HTMLDivElement>(null);
+    const composerVideoRef = useRef<HTMLVideoElement>(null);
+    const orchestraVideoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
+        const target = reelsGridRef.current || sectionRef.current;
+        if (!target) return;
+
+        const loadObserver = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setShouldLoadVideos(true);
-                    observer.disconnect();
+                    loadObserver.disconnect();
                 }
             },
             { rootMargin: '200px 0px' }
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
+        const visibilityObserver = new IntersectionObserver(
+            ([entry]) => {
+                setIsReelsVisible(entry.isIntersecting);
+            },
+            { threshold: 0.1 }
+        );
 
-        return () => observer.disconnect();
+        loadObserver.observe(target);
+        visibilityObserver.observe(target);
+
+        return () => {
+            loadObserver.disconnect();
+            visibilityObserver.disconnect();
+        };
     }, []);
+
+    useEffect(() => {
+        const videos = [composerVideoRef.current, orchestraVideoRef.current];
+        const shouldPlay = shouldLoadVideos && isReelsVisible && !activeVideoModal;
+
+        videos.forEach((video) => {
+            if (!video) return;
+            if (shouldPlay) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+    }, [shouldLoadVideos, isReelsVisible, activeVideoModal]);
 
     const handleNavigate = (tab: string) => {
         sessionStorage.setItem('creditsTab', tab);
@@ -67,17 +97,16 @@ export default function Projects() {
                 ))}
             </div>
 
-            <div className="projects-grid">
+            <div className="projects-grid" ref={reelsGridRef}>
                 <div className="project-card animate-on-scroll" onClick={() => handleNavigate('composition')} style={{ cursor: 'pointer' }}>
                     <video 
+                        ref={composerVideoRef}
                         src={shouldLoadVideos ? ComposerReel : undefined} 
                         preload="none"
                         className="project-poster project-poster-1" 
-                        autoPlay muted playsInline
-                        onEnded={(e) => {
-                            e.currentTarget.currentTime = 0;
-                            e.currentTarget.play();
-                        }}
+                        muted
+                        playsInline
+                        loop
                     />
                     <div className="project-text-overlay">
                         <h3>Composition<br />Credits</h3>
@@ -85,14 +114,13 @@ export default function Projects() {
                 </div>
                 <div className="project-card animate-on-scroll" onClick={() => handleNavigate('orchestration')} style={{ cursor: 'pointer' }}>
                     <video 
+                        ref={orchestraVideoRef}
                         src={shouldLoadVideos ? OrchestraReel : undefined} 
                         preload="none"
                         className="project-poster project-poster-2" 
-                        autoPlay muted playsInline
-                        onEnded={(e) => {
-                            e.currentTarget.currentTime = 0;
-                            e.currentTarget.play();
-                        }}
+                        muted
+                        playsInline
+                        loop
                     />
                     <div className="project-text-overlay">
                         <h3>Orchestration<span className="desktop-space"> </span><br className="mobile-break" />Credits</h3>

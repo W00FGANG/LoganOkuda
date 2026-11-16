@@ -6,20 +6,64 @@ export const handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: "Method not allowed" })
+      body: JSON.stringify({ error: "Method not allowed" }),
     };
   }
 
   try {
-    const { name, email, subject, message } = JSON.parse(event.body);
+    const { name, email, subject, message, website, recaptchaToken } = JSON.parse(event.body || "{}");
+
+    // 1. Honeypot check: bots automatically fill hidden fields
+    if (website) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Spam detected." }),
+      };
+    }
 
     if (!name || !email || !subject || !message) {
       return {
         statusCode: 400,
         body: JSON.stringify({
-          error: "All fields are required."
-        })
+          error: "All fields are required.",
+        }),
       };
+    }
+
+    // 2. Google reCAPTCHA v2 server-side verification
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (recaptchaSecret) {
+      if (!recaptchaToken) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({
+            error: "Please complete the reCAPTCHA verification.",
+          }),
+        };
+      }
+
+      const verifyParams = new URLSearchParams({
+        secret: recaptchaSecret,
+        response: recaptchaToken,
+      });
+
+      const verifyResponse = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: verifyParams.toString(),
+      });
+
+      const verifyData = await verifyResponse.json();
+      if (!verifyData.success) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({
+            error: "reCAPTCHA verification failed. Please try again.",
+          }),
+        };
+      }
     }
 
     const { data, error } = await resend.emails.send({
@@ -40,7 +84,7 @@ export const handler = async (event) => {
 
         <p><strong>Message:</strong></p>
         <p>${message}</p>
-      `
+      `,
     });
 
     if (error) {
@@ -49,8 +93,8 @@ export const handler = async (event) => {
       return {
         statusCode: 500,
         body: JSON.stringify({
-          error: "Failed to send email."
-        })
+          error: "Failed to send email.",
+        }),
       };
     }
 
@@ -58,18 +102,17 @@ export const handler = async (event) => {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
-        id: data.id
-      })
+        id: data.id,
+      }),
     };
-
   } catch (error) {
     console.error(error);
 
     return {
       statusCode: 500,
       body: JSON.stringify({
-        error: "Something went wrong."
-      })
+        error: "Something went wrong.",
+      }),
     };
   }
 };

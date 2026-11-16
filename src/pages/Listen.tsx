@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Listen.css';
 import '../components/Projects.css';
 import BannerImage from '../assets/LogynThinking.webp';
@@ -7,9 +7,30 @@ import VideoModal, { LiteYouTubePreview } from '../components/VideoModal';
 
 function ListenItemEmbed({ title, src }: { title: string; src: string }) {
     const [isInteractive, setIsInteractive] = useState(false);
+    const [shouldLoad, setShouldLoad] = useState(false);
+    const itemRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const el = itemRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setShouldLoad(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: '250px 0px' }
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <div 
+            ref={itemRef}
             className="listen-item" 
             onMouseEnter={() => setIsInteractive(true)}
             onMouseLeave={() => setIsInteractive(false)}
@@ -24,14 +45,18 @@ function ListenItemEmbed({ title, src }: { title: string; src: string }) {
                 {!isInteractive && (
                     <div style={{ position: 'absolute', inset: 0, zIndex: 10, cursor: 'pointer' }}></div>
                 )}
-                <iframe
-                    width="100%"
-                    height="100%"
-                    scrolling="no"
-                    frameBorder="no"
-                    src={src}
-                    style={{ pointerEvents: isInteractive ? 'auto' : 'none' }}
-                ></iframe>
+                {shouldLoad && (
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        scrolling="no"
+                        frameBorder="no"
+                        loading="lazy"
+                        title={title}
+                        src={src}
+                        style={{ pointerEvents: isInteractive ? 'auto' : 'none' }}
+                    ></iframe>
+                )}
             </div>
         </div>
     );

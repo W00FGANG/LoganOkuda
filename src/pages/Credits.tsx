@@ -34,6 +34,7 @@ function InteractiveIframe({ src, className, style, allow, sandbox, title, heigh
                 allow={allow}
                 sandbox={sandbox}
                 title={title}
+                loading="lazy"
                 frameBorder="0"
                 allowFullScreen
             ></iframe>

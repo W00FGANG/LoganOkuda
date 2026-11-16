@@ -14,6 +14,8 @@ import Fantastic4Poster from '../assets/Fantastic4FirstSteps.webp';
 import VisionQuest from '../assets/VisionQuest.webp'
 import GenesisPoster from '../assets/GenesisPoster.webp';
 import UmbraPoster from '../assets/ThroughTheUmbraPoster.webp';
+import OliPoster from '../assets/OliPoster.webp';
+import HighInTheCloudsPoster from '../assets/HighInTheClouds.webp';
 
 export interface FeaturedVideo {
     id: string;
@@ -51,6 +53,15 @@ export interface ProjectData {
 
 export const compositionProjects: ProjectData[] = [
     {
+        id: 19,
+        title: 'High in the Clouds',
+        alt: 'High in the Clouds',
+        src: HighInTheCloudsPoster,
+        description: 'Coming 2027. Directed by Toby Genkel and produced by Gaumont, MPL Communications, Unique Features, & Polygram Entertainment. Features additional music and arrangements by Logyn Okuda.',
+        imdbUrl: 'https://www.imdb.com/title/tt1458167/',
+        role: 'Additional Music & Arrangements',
+    },
+    {
         id: 1,
         title: 'Vision Quest',
         alt: 'Vision Quest',
@@ -59,6 +70,15 @@ export const compositionProjects: ProjectData[] = [
         imdbUrl: 'https://www.imdb.com/title/tt23112594/',
         trailerUrl: 'https://www.youtube.com/embed/sXKnmgmbkoE?si=85bDZrUmTqhtnEE7',
         role: 'Additional Music By',
+    },
+    {
+        id: 18,
+        title: 'Oli',
+        alt: 'Oli',
+        src: OliPoster,
+        description: 'Directed by Nicholas B. Gianforti and Developed by Ohina Labs. Ambient wind textures, haunting synths, and lyrical cello embody grief, ocean, and the sounds of the island in Oli.',
+        albumEmbedUrl: 'https://embed.music.apple.com/us/album/oli-soundtrack-from-the-short-film/6818171126',
+        imdbUrl: 'https://www.imdb.com/title/tt38354192/?ref_=nm_flmg_job_1_accord_1_unrel_cdt_t_1',
     },
     {
         id: 2,
@@ -151,6 +171,15 @@ export const compositionProjects: ProjectData[] = [
 ];
 
 export const orchestrationProjects: ProjectData[] = [
+    {
+        id: 20,
+        title: 'High in the Clouds',
+        alt: 'High in the Clouds',
+        src: HighInTheCloudsPoster,
+        description: 'Coming 2027. Directed by Toby Genkel and produced by Gaumont, MPL Communications, Unique Features, & Polygram Entertainment. Features additional music and arrangements by Logyn Okuda.',
+        imdbUrl: 'https://www.imdb.com/title/tt1458167/',
+        role: 'Additional Music & Arrangements',
+    },
      {
         id: 12,
         title: 'Vision Quest',
